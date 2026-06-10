@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://parkingwkolobrzegu.pl/sitemap.xml
