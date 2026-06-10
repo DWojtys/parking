@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="14" fill="#82ADBA"/>
+  <text x="50" y="54" font-family="Manrope, system-ui, Arial, sans-serif"
+        font-size="68" font-weight="700" fill="#14181C"
+        text-anchor="middle" dominant-baseline="central">P</text>
+</svg>
