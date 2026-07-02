@@ -71,7 +71,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
   :root {
@@ -92,6 +92,8 @@
     --accent-2:   oklch(0.78 0.115 215);  /* jaśniejszy błękit */
     --accent-ink: oklch(0.17 0.03 245);   /* tekst na akcencie */
     --gold:       oklch(0.80 0.085 80);    /* złoto — wyróżnienie ceny */
+    --gold-ink:   oklch(0.22 0.02 80);     /* ciemny tekst na złocie */
+    --live:       oklch(0.68 0.16 150);    /* zieleń — wskaźnik dostępności */
 
     --display:    'Manrope', system-ui, sans-serif;
     --sans:       'Manrope', system-ui, sans-serif;
@@ -105,6 +107,9 @@
   a { color: inherit; text-decoration: none; }
   img { display: block; }
   ::selection { background: var(--accent); color: var(--accent-ink); }
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 4px;
+  }
 
   .container        { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; }
   .container-narrow { max-width: 980px;  margin: 0 auto; padding: 0 32px; position: relative; }
@@ -135,11 +140,12 @@
   .nav-links { display: flex; gap: 30px; font-size: 13px; color: var(--ink-2); }
   .nav-links a { position: relative; transition: color .18s ease; padding: 4px 0; }
   .nav-links a::after {
-    content: ""; position: absolute; left: 0; bottom: -2px; height: 1.5px; width: 0;
-    background: var(--accent); transition: width .22s ease;
+    content: ""; position: absolute; left: 0; bottom: -2px; height: 1.5px; width: 100%;
+    background: var(--accent); transform: scaleX(0); transform-origin: left;
+    transition: transform .22s ease;
   }
   .nav-links a:hover { color: var(--ink); }
-  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover::after { transform: scaleX(1); }
   .nav-cta {
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
     background: var(--accent); color: var(--accent-ink); font-weight: 500;
@@ -147,15 +153,44 @@
     box-shadow: 0 4px 16px oklch(0.66 0.14 232 / 0.25);
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px oklch(0.66 0.14 232 / 0.4); }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .nav-toggle {
+    display: none; width: 44px; height: 44px; border-radius: 10px;
+    background: transparent; border: 1px solid var(--line); color: var(--ink);
+    cursor: pointer; place-items: center;
+  }
+  .nav-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .nav-toggle .ikona-zamknij { display: none; }
+  .nav-toggle[aria-expanded="true"] .ikona-menu { display: none; }
+  .nav-toggle[aria-expanded="true"] .ikona-zamknij { display: block; }
+  .nav-panel-cta { display: none; }
   @media (max-width: 760px) {
-    .nav-links { display: none; }
     .nav-inner { gap: 12px; }
     .brand { font-size: 11px; }
-    .nav-cta {
-      font-size: 11px; padding: 9px 14px;
-      white-space: nowrap; text-align: center;
-      flex-shrink: 0;
+    .nav-actions .nav-cta { display: none; }
+    .nav-toggle { display: grid; }
+    .nav-links a.nav-panel-cta {
+      display: flex; justify-content: center; align-items: center;
+      margin: 10px 20px 6px; padding: 14px; min-height: 48px;
+      background: var(--accent); color: var(--accent-ink);
+      border-radius: 999px;
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
+      text-transform: uppercase; font-weight: 500;
     }
+    .nav-links {
+      position: absolute; top: 68px; left: 0; right: 0;
+      flex-direction: column; gap: 0; display: none;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 24px 40px oklch(0.12 0.02 248 / 0.5);
+      padding: 6px 0;
+    }
+    .nav.otwarte .nav-links { display: flex; }
+    .nav-links a {
+      padding: 14px 32px; font-size: 15px; color: var(--ink-2);
+      min-height: 48px; display: flex; align-items: center;
+    }
+    .nav-links a::after { display: none; }
   }
 
   /* ============ HERO ============ */
@@ -179,7 +214,7 @@
     padding: 6px 12px; border-radius: 999px;
   }
   .hero-meta .pulse {
-    width: 8px; height: 8px; background: oklch(0.68 0.16 150);
+    width: 8px; height: 8px; background: var(--live);
     border-radius: 50%; animation: pulse 2s infinite;
   }
   @keyframes pulse {
@@ -195,8 +230,7 @@
   }
   .hero-title em {
     font-style: normal; font-weight: 400;
-    background: linear-gradient(120deg, var(--accent-2), var(--accent));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+    color: var(--accent-2);
   }
   .hero-grid {
     display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px;
@@ -231,7 +265,7 @@
     position: absolute; left: 20px; bottom: 20px; z-index: 2;
     background: oklch(0.16 0.02 248 / 0.72); backdrop-filter: blur(10px);
     border: 1px solid oklch(0.96 0.006 248 / 0.12);
-    color: #ffffff;
+    color: var(--ink);
     padding: 10px 14px; border-radius: 999px;
     font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     display: flex; align-items: center; gap: 10px;
@@ -300,6 +334,7 @@
     backdrop-filter: blur(6px); transition: background 0.2s, border-color 0.2s; z-index: 2;
   }
   .karuzela-btn:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .karuzela-btn { width: 44px; height: 44px; }
   .karuzela-btn.poprzedni { left: 14px; }
   .karuzela-btn.nastepny  { right: 14px; }
   .karuzela-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
@@ -308,11 +343,27 @@
     display: flex; gap: 7px; z-index: 2;
   }
   .karuzela-kropka {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: oklch(0.96 0.006 248 / 0.4); cursor: pointer;
-    transition: background 0.2s, transform 0.2s, width 0.2s; border: none; padding: 0;
+    width: 24px; height: 24px; border: none; padding: 0; background: none;
+    cursor: pointer; display: grid; place-items: center;
   }
-  .karuzela-kropka.aktywna { background: var(--accent-2); width: 22px; border-radius: 4px; }
+  .karuzela-kropka::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: oklch(0.96 0.006 248 / 0.4);
+    transition: background 0.2s, width 0.2s;
+  }
+  .karuzela-kropka.aktywna::before { background: var(--accent-2); width: 22px; border-radius: 4px; }
+  .karuzela-pauza {
+    position: absolute; top: 14px; right: 14px; z-index: 3;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: oklch(0.16 0.02 248 / 0.6); border: 1px solid oklch(0.96 0.006 248 / 0.18);
+    color: var(--ink); cursor: pointer; display: grid; place-items: center;
+    backdrop-filter: blur(6px); transition: background 0.2s, border-color 0.2s;
+  }
+  .karuzela-pauza:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .karuzela-pauza svg { width: 16px; height: 16px; fill: currentColor; }
+  .karuzela-pauza .ikona-play { display: none; }
+  .karuzela-pauza[aria-pressed="true"] .ikona-pauza { display: none; }
+  .karuzela-pauza[aria-pressed="true"] .ikona-play { display: block; }
 
   /* ============ CO OFERUJEMY ============ */
   .features { background: var(--bg-2); }
@@ -396,10 +447,13 @@
     border: 1.5px solid transparent;
     box-shadow: 0 20px 50px oklch(0.12 0.02 248 / 0.5);
   }
-  .price-card.featured .price-save { background: var(--gold); color: oklch(0.22 0.02 80); }
+  .price-card.featured .price-save { background: var(--gold); color: var(--gold-ink); }
+  /* Karta wyróżniona ma jaśniejsze tło (--bg-3) — podbijamy kontrast etykiet */
+  .price-card.featured .price-meta,
+  .price-card.featured .price-currency { color: var(--ink-2); }
   .price-tag {
     position: absolute; top: -11px; right: 22px;
-    background: var(--gold); color: oklch(0.22 0.02 80);
+    background: var(--gold); color: var(--gold-ink);
     font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
     padding: 5px 11px; border-radius: 999px; font-weight: 500;
   }
@@ -407,15 +461,12 @@
   .price-name    { font-family: var(--display); font-size: 30px; font-weight: 600; line-height: 1.1; }
   .price-amount  { display: flex; align-items: baseline; gap: 7px; margin-top: 8px; }
   .price-value   { font-family: var(--display); font-size: 68px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
-  .price-card.featured .price-value {
-    background: linear-gradient(120deg, var(--accent-2), var(--accent));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+  .price-card.featured .price-value { color: var(--accent-2); }
   .price-currency{ font-family: var(--mono); font-size: 13px; color: var(--ink-3); text-transform: lowercase; }
   .price-save    { display: inline-block; background: oklch(0.66 0.14 232 / 0.14); color: var(--accent-2); font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 7px 11px; border-radius: 6px; align-self: flex-start; }
   .pricing-conditions {
-    margin-top: 28px; padding: 18px 22px; background: var(--bg-2); border-radius: 10px;
-    border-left: 2px solid var(--accent);
+    margin-top: 28px; padding: 18px 22px; border-radius: 10px;
+    background: oklch(0.66 0.14 232 / 0.08); border: 1px solid var(--line);
     font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--ink-2);
     display: inline-flex; align-items: center; gap: 10px;
   }
@@ -457,8 +508,7 @@
   .cta-title { font-family: var(--display); font-weight: 700; font-size: clamp(46px, 6.6vw, 92px); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 22px; text-wrap: balance; }
   .cta-title em {
     font-style: normal; font-weight: 400;
-    background: linear-gradient(120deg, var(--accent-2), var(--accent));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+    color: var(--accent-2);
   }
   .cta-lead { font-size: 18px; color: var(--ink-2); margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
   .cta-buttons { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: center; }
@@ -489,6 +539,19 @@
   .footer-bottom { display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3); text-transform: uppercase; }
   @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 8px; } }
 
+  /* ============ OGRANICZENIE RUCHU (dostępność) ============ */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .karuzela-slajdy { transition: none; }
+    .hero-meta .pulse { animation: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -505,13 +568,20 @@
       <span class="brand-mark">P</span>
       <span>Parking Pasaż Parsęta</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#o-obiekcie">O obiekcie</a>
       <a href="#cennik">Cennik</a>
       <a href="#lokalizacja">Lokalizacja</a>
       <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="nav-panel-cta">Zarezerwuj miejsce</a>
     </div>
-    <a href="#kontakt" class="nav-cta">Zarezerwuj miejsce</a>
+    <div class="nav-actions">
+      <a href="#kontakt" class="nav-cta">Zarezerwuj miejsce</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="ikona-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="ikona-zamknij" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -556,7 +626,7 @@
 
     <div class="hero-image-wrap">
       <div class="hero-image">
-        <img src="zdjecia/widok1.jpg" alt="Parking w Kołobrzegu — garaż wielopoziomowy Pasaż Parsęta, ul. Łopuskiego 27">
+        <img src="zdjecia/widok1.jpg" fetchpriority="high" decoding="async" alt="Parking w Kołobrzegu — garaż wielopoziomowy Pasaż Parsęta, ul. Łopuskiego 27">
       </div>
       <div class="hero-image-caption">
         <span class="badge"></span>
@@ -605,19 +675,23 @@
 
       <div class="karuzela">
         <div class="karuzela-slajdy">
-          <div class="karuzela-slajd"><img src="zdjecia/a_1.png" alt="Zamykane miejsce parkingowe w garażu w Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/a_2.jpg" alt="Otwarte miejsce parkingowe na wynajem w Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/a_3.jpg" alt="Wejście do parkingu Pasaż Parsęta w Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/aa2.jpg" alt="Wjazd na parking przy ul. Łopuskiego 27 w Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/aa3.jpg" alt="Budynek garażu wielopoziomowego w centrum Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/aa4.jpg" alt="Przestrzeń parkingowa wewnątrz garażu w Kołobrzegu"></div>
-          <div class="karuzela-slajd"><img src="zdjecia/aa5.jpg" alt="Miejsca postojowe w garażu naziemnym Kołobrzeg centrum"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/a_1.png" alt="Zamykane miejsce parkingowe w garażu w Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/a_2.jpg" alt="Otwarte miejsce parkingowe na wynajem w Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/a_3.jpg" alt="Wejście do parkingu Pasaż Parsęta w Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/aa2.jpg" alt="Wjazd na parking przy ul. Łopuskiego 27 w Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/aa3.jpg" alt="Budynek garażu wielopoziomowego w centrum Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/aa4.jpg" alt="Przestrzeń parkingowa wewnątrz garażu w Kołobrzegu"></div>
+          <div class="karuzela-slajd"><img loading="lazy" decoding="async" src="zdjecia/aa5.jpg" alt="Miejsca postojowe w garażu naziemnym Kołobrzeg centrum"></div>
         </div>
         <button class="karuzela-btn poprzedni" aria-label="Poprzednie">
           <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
         </button>
         <button class="karuzela-btn nastepny" aria-label="Następne">
           <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+        <button class="karuzela-pauza" aria-pressed="false" aria-label="Zatrzymaj pokaz slajdów">
+          <svg class="ikona-pauza" viewBox="0 0 24 24"><rect x="7" y="5" width="3.5" height="14" rx="1"></rect><rect x="13.5" y="5" width="3.5" height="14" rx="1"></rect></svg>
+          <svg class="ikona-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
         </button>
         <div class="karuzela-kropki">
           <button class="karuzela-kropka aktywna" aria-label="Zdjęcie 1"></button>
@@ -786,7 +860,7 @@
 
       <!-- MAPA GOOGLE MAPS -->
       <div class="location-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.8278871446352!2d15.571156506192919!3d54.17665029027918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470015a2e929a23d%3A0x237d68a1921408e3!2sParking%20w%20Pasa%C5%BCu%20Pars%C4%99ta!5e0!3m2!1spl!2spl!4v1781370378148!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        <iframe title="Mapa — Parking Pasaż Parsęta, ul. Łopuskiego 27, Kołobrzeg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.8278871446352!2d15.571156506192919!3d54.17665029027918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470015a2e929a23d%3A0x237d68a1921408e3!2sParking%20w%20Pasa%C5%BCu%20Pars%C4%99ta!5e0!3m2!1spl!2spl!4v1781370378148!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
 
@@ -838,7 +912,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Parking Pasaż Parsęta</span>
-      <span>Kołobrzeg · Wynajem miejsc parkingowych</span>
+      <span><a href="polityka-prywatnosci.html">Polityka prywatności</a> · Kołobrzeg · Wynajem miejsc parkingowych</span>
     </div>
   </div>
 </footer>
@@ -851,33 +925,59 @@
 
   // Karuzela zdjęć
   (function() {
+    const karuzela = document.querySelector('.karuzela');
     const slajdy = document.querySelectorAll('.karuzela-slajd');
     const kropki  = document.querySelectorAll('.karuzela-kropka');
     const track   = document.querySelector('.karuzela-slajdy');
+    const btnPauza = document.querySelector('.karuzela-pauza');
+    const ruchOgraniczony = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const INTERWAL = 4500;
     let aktywny = 0;
-    let timer;
+    let timer = null;
+    let zatrzymany = ruchOgraniczony.matches;  // domyślnie stop, gdy użytkownik ogranicza ruch
 
     function pokaz(n) {
       aktywny = (n + slajdy.length) % slajdy.length;
       track.style.transform = 'translateX(-' + (aktywny * 100) + '%)';
       kropki.forEach(function(k, i) { k.classList.toggle('aktywna', i === aktywny); });
     }
-
     function nastepny() { pokaz(aktywny + 1); }
 
+    function start() { if (zatrzymany || timer) return; timer = setInterval(nastepny, INTERWAL); }
+    function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+    function ustawPauze(stan) {
+      zatrzymany = stan;
+      btnPauza.setAttribute('aria-pressed', String(stan));
+      btnPauza.setAttribute('aria-label', stan ? 'Wznów pokaz slajdów' : 'Zatrzymaj pokaz slajdów');
+      if (stan) { stop(); } else { start(); }
+    }
+
+    // Ręczna pauza / wznowienie (WCAG 2.2.2)
+    btnPauza.addEventListener('click', function() { ustawPauze(!zatrzymany); });
+
+    // Strzałki i kropki: przewiń i zresetuj licznik (bez zmiany stanu pauzy)
     document.querySelector('.karuzela-btn.nastepny').addEventListener('click', function() {
-      clearInterval(timer); nastepny(); timer = setInterval(nastepny, 4500);
+      stop(); nastepny(); start();
     });
     document.querySelector('.karuzela-btn.poprzedni').addEventListener('click', function() {
-      clearInterval(timer); pokaz(aktywny - 1); timer = setInterval(nastepny, 4500);
+      stop(); pokaz(aktywny - 1); start();
     });
     kropki.forEach(function(k, i) {
-      k.addEventListener('click', function() {
-        clearInterval(timer); pokaz(i); timer = setInterval(nastepny, 4500);
-      });
+      k.addEventListener('click', function() { stop(); pokaz(i); start(); });
     });
 
-    timer = setInterval(nastepny, 4500);
+    // Zatrzymaj na najechaniu / fokusie klawiatury, wznów po opuszczeniu
+    karuzela.addEventListener('mouseenter', stop);
+    karuzela.addEventListener('mouseleave', start);
+    karuzela.addEventListener('focusin', stop);
+    karuzela.addEventListener('focusout', start);
+
+    // Reaguj na zmianę preferencji ruchu w trakcie
+    ruchOgraniczony.addEventListener('change', function(e) { if (e.matches) { ustawPauze(true); } });
+
+    // Stan początkowy
+    ustawPauze(zatrzymany);
   })();
 
   // Przełączanie zakładek cennika
@@ -898,13 +998,45 @@
   tabOpen.addEventListener('click',   function() { ustawZakladke('open');   });
   tabClosed.addEventListener('click', function() { ustawZakladke('closed'); });
 
-  // Płynne przewijanie do sekcji
+  // Menu mobilne
+  (function() {
+    const nav = document.querySelector('.nav');
+    const toggle = document.getElementById('nav-toggle');
+    const linki = document.getElementById('nav-links');
+
+    function ustawMenu(otwarte) {
+      nav.classList.toggle('otwarte', otwarte);
+      toggle.setAttribute('aria-expanded', String(otwarte));
+      toggle.setAttribute('aria-label', otwarte ? 'Zamknij menu' : 'Otwórz menu');
+    }
+    toggle.addEventListener('click', function() {
+      ustawMenu(!nav.classList.contains('otwarte'));
+    });
+    // Zamknij po wyborze sekcji
+    linki.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { ustawMenu(false); });
+    });
+    // Zamknij klawiszem Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && nav.classList.contains('otwarte')) { ustawMenu(false); toggle.focus(); }
+    });
+    // Sprzątanie po powrocie na desktop
+    window.matchMedia('(min-width: 761px)').addEventListener('change', function(e) {
+      if (e.matches) ustawMenu(false);
+    });
+  })();
+
+  // Płynne przewijanie do sekcji (z poszanowaniem ograniczenia ruchu)
   document.querySelectorAll('a[href^="#"]').forEach(function(link) {
     link.addEventListener('click', function(e) {
       var id = link.getAttribute('href');
       if (id.length > 1) {
         var cel = document.querySelector(id);
-        if (cel) { e.preventDefault(); window.scrollTo({ top: cel.offsetTop - 68, behavior: 'smooth' }); }
+        if (cel) {
+          e.preventDefault();
+          var plynnie = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          window.scrollTo({ top: cel.offsetTop - 68, behavior: plynnie ? 'smooth' : 'auto' });
+        }
       }
     });
   });
