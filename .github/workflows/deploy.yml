@@ -13,11 +13,11 @@ permissions:
   pages: write
   id-token: write
 
-# Tylko jeden deployment naraz. Nowy push anuluje trwający,
-# dzięki czemu nic nie kolejkuje się w nieskończoność.
+# Tylko jeden deployment naraz. Trwajacy deploy dokancza sie,
+# a nadmiarowe zakolejkowane runy sa pomijane (nie kasuja sie nawzajem).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
