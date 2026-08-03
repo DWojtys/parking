@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon „Dzienna zmiana" — zielona tabliczka z literą P (parking Pasaż Parsęta) -->
+  <rect width="64" height="64" rx="13" fill="#006A3E"/>
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M19 15 H33.5 C42 15 47 19.8 47 27 C47 34.2 42 39 33.5 39 H28 V49 H19 Z M28 22.5 H33 C36.2 22.5 38 24.2 38 27 C38 29.8 36.2 31.5 33 31.5 H28 Z"/>
+</svg>
