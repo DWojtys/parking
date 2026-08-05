@@ -7,11 +7,10 @@
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#191c20">
 
 <!-- ============ PODSTAWOWE SEO ============ -->
-<title>Parking Kołobrzeg, wynajem miejsc i garaż w centrum | Pasaż Parsęta</title>
-<meta name="description" content="Wynajem miejsc parkingowych w centrum Kołobrzegu: Pasaż Parsęta, ul. Łopuskiego 27. Garaż naziemny, miejsca otwarte i zamykane, monitoring 24/7, wjazd na pilota. Najem długoterminowy od 400 zł/mc.">
+<title>Parking Kołobrzeg, wynajem miejsca parkingowego w centrum | Pasaż Parsęta</title>
+<meta name="description" content="Wynajem miejsc parkingowych w centrum Kołobrzegu: Pasaż Parsęta, ul. Łopuskiego 27. Garaż naziemny, miejsca otwarte i zamykane, monitoring 24/7, od 400 zł/mc.">
 <meta name="author" content="Parking Pasaż Parsęta">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://parkingwkolobrzegu.pl/">
 
 <!-- ============ IKONA (favicon) -zielona tabliczka „P" systemu „Dzienna zmiana" ============ -->
@@ -25,115 +24,95 @@
 <meta name="geo.position" content="54.1766093;15.5712616">
 <meta name="ICBM" content="54.1766093, 15.5712616">
 
-<!-- ============ OPEN GRAPH ============ -->
+<!-- ============ OPEN GRAPH / TWITTER ============ -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="Parking Pasaż Parsęta">
-<meta property="og:title" content="Parking Kołobrzeg, wynajem miejsc w centrum | Pasaż Parsęta">
+<meta property="og:title" content="Parking Kołobrzeg, wynajem miejsca parkingowego w centrum">
 <meta property="og:description" content="Garaż naziemny w centrum Kołobrzegu. Miejsca otwarte i zamykane na wynajem, monitoring 24/7, wjazd na pilota. Najem długoterminowy od 400 zł/mc.">
 <meta property="og:url" content="https://parkingwkolobrzegu.pl/">
-<meta property="og:image" content="https://parkingwkolobrzegu.pl/zdjecia/widok1.jpg">
+<meta property="og:image" content="https://parkingwkolobrzegu.pl/zdjecia/parking-kolobrzeg-garaz-wielopoziomowy.jpg">
 <meta property="og:image:alt" content="Parking Pasaż Parsęta w Kołobrzegu">
-
-<!-- ============ TWITTER CARD ============ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Parking Kołobrzeg, wynajem miejsc w centrum | Pasaż Parsęta">
+<meta name="twitter:title" content="Parking Kołobrzeg, wynajem miejsca parkingowego w centrum">
 <meta name="twitter:description" content="Garaż naziemny w centrum Kołobrzegu. Miejsca otwarte i zamykane na wynajem, monitoring 24/7, wjazd na pilota.">
-<meta name="twitter:image" content="https://parkingwkolobrzegu.pl/zdjecia/widok1.jpg">
+<meta name="twitter:image" content="https://parkingwkolobrzegu.pl/zdjecia/parking-kolobrzeg-garaz-wielopoziomowy.jpg">
 
-<!-- ============ DANE STRUKTURALNE ============ -->
+<!-- ============ DANE STRUKTURALNE ============
+     Obiekt firmy opisujemy JEDEN raz, tutaj, pod jawnym @id.
+     Podstrony nie powtarzają całego obiektu, tylko odwołują się do tego @id.
+     ================================================================ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["ParkingFacility", "LocalBusiness"],
-  "name": "Parking Pasaż Parsęta",
-  "priceRange": "400-600 zł / miesiąc",
-  "description": "Wynajem miejsc parkingowych w centrum Kołobrzegu. Garaż naziemny, miejsca otwarte i zamykane, monitoring 24/7, wjazd na pilota.",
-  "url": "https://parkingwkolobrzegu.pl/",
-  "image": "https://parkingwkolobrzegu.pl/zdjecia/widok1.jpg",
-  "telephone": "+48602464010",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+48602464010",
-    "contactType": "customer service",
-    "hoursAvailable": {
-      "@type": "OpeningHoursSpecification",
-      "opens": "08:00",
-      "closes": "18:00"
-    }
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ul. Łopuskiego 27",
-    "addressLocality": "Kołobrzeg",
-    "postalCode": "78-100",
-    "addressRegion": "zachodniopomorskie",
-    "addressCountry": "PL"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 54.1766093,
-    "longitude": 15.5712616
-  },
-  "hasMap": "https://www.google.com/maps/place/?q=place_id:0x470015a2e929a23d:0x237d68a1921408e3",
-  "openingHours": "Mo-Su 00:00-24:00",
-  "areaServed": "Kołobrzeg"
-}
-</script>
-
-<!-- ============ FAQ (dane strukturalne) ============ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "Ile kosztuje wynajem miejsca parkingowego w Kołobrzegu?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Miejsce otwarte to 500 zł/mc przy umowie miesięcznej, 450 zł/mc przy 6 miesiącach i 400 zł/mc przy umowie rocznej. Miejsce zamykane — odpowiednio 600, 550 i 500 zł/mc. Im dłuższy okres, tym niższa stawka, a cena jest stała i bez ukrytych opłat."
-      }
+      "@type": "WebSite",
+      "@id": "https://parkingwkolobrzegu.pl/#witryna",
+      "url": "https://parkingwkolobrzegu.pl/",
+      "name": "Parking Pasaż Parsęta",
+      "inLanguage": "pl-PL",
+      "publisher": { "@id": "https://parkingwkolobrzegu.pl/#organizacja" }
     },
     {
-      "@type": "Question",
-      "name": "Jaki jest minimalny okres wynajmu?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Umowy zawieramy już od jednego miesiąca. Dostępny jest najem miesięczny, półroczny i roczny — przy dłuższym okresie miesięczna stawka jest niższa."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Czym różni się miejsce otwarte od zamykanego?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Miejsce otwarte to wyznaczone stanowisko w hali garażowej — auto stoi pod dachem, osłonięte przed deszczem, śniegiem i słońcem. Miejsce zamykane to prywatny, zamykany boks, który daje dodatkową ochronę i może służyć również jako schowek."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Czy parking jest monitorowany i bezpieczny?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tak. Obiekt jest objęty monitoringiem 24/7, a wjazd odbywa się przez automatyczną bramę na pilota, z dostępem na kartę RFID. Na teren dostają się wyłącznie osoby wynajmujące miejsce."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Gdzie znajduje się parking i jak dojechać?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Parking Pasaż Parsęta mieści się przy ul. ppor. Edmunda Łopuskiego 27, w ścisłym centrum Kołobrzegu — 5 minut pieszo od starówki. Dokładną lokalizację i trasę dojazdu pokazuje mapa w sekcji Lokalizacja."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Jak wynająć miejsce parkingowe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Zadzwoń pod +48 602 464 010 (8:00–18:00). Sprawdzimy dostępność, umówimy oglądanie obiektu i podpiszemy umowę. Firmom wystawiamy fakturę."
-      }
+      "@type": ["ParkingFacility", "LocalBusiness"],
+      "@id": "https://parkingwkolobrzegu.pl/#organizacja",
+      "name": "Parking Pasaż Parsęta",
+      "legalName": "Supermat Adam Gzyl",
+      "taxID": "6711308209",
+      "description": "Wynajem miejsc parkingowych w centrum Kołobrzegu. Garaż naziemny, miejsca otwarte i zamykane, monitoring 24/7, wjazd na pilota, dostęp na kartę RFID.",
+      "url": "https://parkingwkolobrzegu.pl/",
+      "image": "https://parkingwkolobrzegu.pl/zdjecia/parking-kolobrzeg-garaz-wielopoziomowy.jpg",
+      "telephone": "+48602464010",
+      "priceRange": "400-600 PLN",
+      "currenciesAccepted": "PLN",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. ppor. Edmunda Łopuskiego 27",
+        "addressLocality": "Kołobrzeg",
+        "postalCode": "78-100",
+        "addressRegion": "zachodniopomorskie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 54.1766093,
+        "longitude": 15.5712616
+      },
+      "hasMap": "https://www.google.com/maps/place/?q=place_id:0x470015a2e929a23d:0x237d68a1921408e3",
+      "sameAs": [
+        "https://www.google.com/maps/place/?q=place_id:0x470015a2e929a23d:0x237d68a1921408e3"
+      ],
+      "areaServed": { "@type": "City", "name": "Kołobrzeg" },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59",
+          "description": "Najemcy mają dostęp do obiektu całą dobę."
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+48602464010",
+        "contactType": "customer service",
+        "availableLanguage": "pl",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Monitoring 24/7", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Brama automatyczna na pilota", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Dostęp na kartę RFID", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Miejsca zadaszone", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Miejsca zamykane (boksy)", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Faktura VAT", "value": true }
+      ]
     }
   ]
 }
@@ -142,870 +121,35 @@
 <!-- Czcionka Archivo hostowana lokalnie (bez zapytań do Google -szybszy render, czystsze RODO) -->
 <link rel="preload" as="font" type="font/woff2" href="fonts/archivo-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/archivo-latin-ext.woff2" crossorigin>
-
-<style>
-  @font-face {
-    font-family: 'Archivo';
-    font-style: normal;
-    font-weight: 100 900;
-    font-stretch: 62% 125%;
-    font-display: swap;
-    src: url(fonts/archivo-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Archivo';
-    font-style: normal;
-    font-weight: 100 900;
-    font-stretch: 62% 125%;
-    font-display: swap;
-    src: url(fonts/archivo-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /* ================================================================
-     „DZIENNA ZMIANA" -jasny system wprost ze zdjęć obiektu:
-     beton, asfaltowa czerń, zieleń malowanych bram garażowych,
-     jeden ślad żółtej farby znakującej przy najlepszej cenie.
-     ================================================================ */
-  :root {
-    --bg:          oklch(0.97 0.005 160);   /* beton -tło strony */
-    --surface:     oklch(0.995 0.002 160);  /* białe tablice */
-    --ink:         oklch(0.22 0.012 170);   /* asfalt -nagłówki */
-    --ink-2:       oklch(0.38 0.018 168);   /* akapity */
-    --ink-3:       oklch(0.455 0.02 168);   /* etykiety (tylko duże/krótkie) */
-    --line:        oklch(0.885 0.012 165);  /* fugi między płytami */
-    --line-2:      oklch(0.79 0.015 165);
-
-    --brand:       oklch(0.46 0.115 158);   /* zieleń bram -kolor prowadzący */
-    --brand-deep:  oklch(0.385 0.095 160);  /* hover / cień farby */
-    --brand-dark:  oklch(0.29 0.05 162);    /* stopka */
-    --brand-tint:  oklch(0.945 0.028 158);  /* podświetlenie wiersza */
-    --on-brand:    oklch(0.985 0.004 160);  /* tekst na zieleni */
-    --on-brand-2:  oklch(0.955 0.022 156);  /* tekst drugorzędny na zieleni (≥4.5:1) */
-
-    --board:       oklch(0.25 0.014 172);   /* ciemna tablica informacyjna */
-    --board-line:  oklch(1 0 0 / 0.13);
-    --on-board:    oklch(0.985 0.004 160);  /* tekst na ciemnych kaflach -zawsze jasny */
-    --on-board-2:  oklch(0.79 0.015 165);
-    --board-icon:    oklch(0.76 0.11 152);      /* ikony na ciemnych tablicach (oba motywy) */
-    --board-icon-bg: oklch(0.62 0.16 152 / 0.1);
-
-    --paint:       oklch(0.87 0.145 95);    /* żółta farba znakująca */
-    --paint-ink:   oklch(0.31 0.065 90);
-
-    /* powierzchnie i akcenty przełączane między motywami (patrz „NOCNA ZMIANA") */
-    --topbar-bg:      oklch(0.995 0.002 160 / 0.92);  /* szklana listwa */
-    --brand-wash:     oklch(0.46 0.115 158 / 0.08);   /* podświetlenie hoverów */
-    --brand-wash-2:   oklch(0.46 0.115 158 / 0.12);   /* tło plakietki oszczędności */
-    --head-bg:        oklch(0.22 0.012 170);          /* nagłówek tablicy cennika */
-    --head-ink:       oklch(0.995 0.002 160);
-    --head-ink-2:     oklch(0.80 0.012 165);
-    --on-footer:      oklch(0.985 0.004 160);          /* tekst w stopce -zawsze jasny */
-    --on-footer-2:    oklch(0.93 0.035 156);
-    --footer-mark-bg: oklch(0.995 0.002 160);          /* znak „P" w stopce */
-    --footer-mark-ink:oklch(0.29 0.05 162);
-    --plate-shadow:   0 18px 44px oklch(0.22 0.012 170 / 0.16);
-
-    --sans: 'Archivo', system-ui, sans-serif;
-    --r-xs: 6px;    /* drobne plakietki (oszczędność, atrybucja mapy) */
-    --r-sm: 8px;    /* przyciski, plakietki */
-    --r-md: 12px;   /* tablice, zdjęcia */
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  html, body {
-    background: var(--bg); color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; overflow-x: clip;
-  }
-  body { font-size: 16.5px; line-height: 1.55; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  strong { font-weight: 700; }
-  ::selection { background: var(--brand); color: var(--on-brand); }
-  :where(a, button, [tabindex]):focus-visible {
-    outline: 3px solid var(--brand); outline-offset: 2px; border-radius: var(--r-sm);
-  }
-  .on-dark :where(a, button):focus-visible { outline-color: oklch(0.97 0.01 160); }
-  main:focus, main:focus-visible { outline: none; }
-
-  /* Poziomy padding respektuje wcięcia bezpieczne (notch) w orientacji poziomej -env()=0 na zwykłych urządzeniach */
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-right)) 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-left)); position: relative; }
-
-  h1, h2, h3 { text-wrap: balance; }
-  p { text-wrap: pretty; }
-
-  .skip-link {
-    position: absolute; left: 16px; top: -60px; z-index: 100;
-    background: var(--ink); color: var(--surface);
-    padding: 12px 18px; border-radius: var(--r-sm); font-weight: 600;
-    transition: top .2s ease;
-  }
-  .skip-link:focus-visible { top: 12px; }
-
-  /* ============ GÓRNA LISTWA ============ */
-  .topbar {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--topbar-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 4px solid var(--brand);      /* malowana linia -sygnatura */
-    border-bottom: 1px solid var(--line);
-  }
-  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 66px; }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-stretch: 115%; font-size: 15px; letter-spacing: 0.01em; text-transform: uppercase; }
-  .brand-mark {
-    width: 34px; height: 34px; flex-shrink: 0;
-    background: var(--brand); color: var(--on-brand);
-    display: grid; place-items: center;
-    font-size: 20px; font-weight: 800; font-stretch: 125%;
-    border-radius: var(--r-sm);
-  }
-  .topbar-nav { display: flex; gap: 6px; }
-  .topbar-nav a {
-    font-size: 15px; font-weight: 600; color: var(--ink-2);
-    padding: 12px 14px; border-radius: var(--r-sm);
-    transition: color .15s ease, background .15s ease;
-  }
-  @media (hover: hover) {
-    .topbar-nav a:hover { color: var(--ink); background: var(--brand-wash); }
-  }
-  .topbar-tel {
-    display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
-    font-weight: 800; font-stretch: 110%; font-size: 16px;
-    color: var(--brand); padding: 10px 14px; border-radius: var(--r-sm);
-    font-variant-numeric: tabular-nums;
-    transition: color .15s ease, background .15s ease;
-  }
-  @media (hover: hover) {
-    .topbar-tel:hover { color: var(--brand-deep); background: var(--brand-wash); }
-  }
-  .topbar-tel svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
-  .topbar-actions { display: flex; align-items: center; gap: 6px; }
-  /* Ukryty bez JS -przełącznik nic by nie robił i miałby błędną etykietę;
-     motyw automatyczny (prefers-color-scheme) działa niezależnie od tego przycisku. */
-  .theme-toggle {
-    display: none; place-items: center;
-    width: 44px; height: 44px; flex-shrink: 0;
-    background: transparent; color: var(--ink-2);
-    border: 1.5px solid var(--line-2); border-radius: var(--r-sm);
-    cursor: pointer;
-    transition: color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;
-  }
-  html.js .theme-toggle { display: inline-grid; }
-  @media (hover: hover) {
-    .theme-toggle:hover { color: var(--brand); border-color: var(--brand); background: var(--brand-wash); }
-  }
-  .theme-toggle:active { transform: scale(0.94); }
-  .theme-toggle svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; }
-  /* Ikona odzwierciedla motyw efektywny -działa też bez JS (śledzi te same warunki co motyw) */
-  .theme-toggle .icon-sun { display: none; }
-  .theme-toggle .icon-moon { display: block; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .theme-toggle .icon-sun { display: block; }
-    :root:not([data-theme]) .theme-toggle .icon-moon { display: none; }
-  }
-  :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-  :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-  @media (max-width: 860px) {
-    .topbar-nav { display: none; }
-  }
-  /* Mobilny wiersz kotwic -skróty sekcji, gdy znika pełna nawigacja */
-  .topbar-anchors { display: none; }
-  @media (max-width: 860px) {
-    .topbar-anchors {
-      display: flex; gap: 8px;
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding: 0 clamp(20px, 4vw, 36px) 10px;
-    }
-    .topbar-anchors::-webkit-scrollbar { display: none; }
-    .topbar-anchors a {
-      flex-shrink: 0; display: inline-flex; align-items: center;
-      min-height: 44px; padding: 10px 14px;
-      border: 1px solid var(--line); border-radius: var(--r-sm);
-      font-size: 13.5px; font-weight: 700; color: var(--ink-2);
-      transition: color .15s ease, border-color .15s ease;
-    }
-    .topbar-anchors a:active { border-color: var(--brand); color: var(--brand); }
-  }
-  @media (max-width: 480px) {
-    .topbar-inner { gap: 10px; }
-    .brand { gap: 10px; }
-    .brand span:last-child { font-size: 11px; max-width: 130px; }
-    /* Telefon w listwie chowamy -połączenie zapewniają przycisk w hero i dolny pasek (callbar).
-       Zostaje sam przełącznik motywu, dzięki czemu listwa nie przewija się w poziomie na wąskich telefonach. */
-    .topbar-tel { display: none; }
-  }
-
-  /* ============ HERO ============ */
-  .hero { padding: clamp(44px, 7vh, 84px) 0 clamp(40px, 6vh, 72px); }
-  .hero-meta {
-    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-    font-size: 14.5px; font-weight: 600; color: var(--ink-2);
-    margin-bottom: 26px;
-  }
-  .hero-meta .live {
-    display: inline-flex; align-items: center; gap: 9px;
-    color: var(--ink); font-weight: 700;
-    background: var(--brand-wash);
-    padding: 7px 14px; border-radius: 999px;
-  }
-  /* Znacznik dostępności w motywie „malowanej linii" -jeden zielony, zamiast obcej zieleni i kropki-statusu */
-  .hero-meta .live::before { content: ""; width: 13px; height: 3px; border-radius: 2px; background: var(--brand); flex-shrink: 0; }
-  .hero h1 {
-    font-size: clamp(38px, 5.8vw, 74px);
-    font-weight: 800; font-stretch: 122%;
-    line-height: 1.02; letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-  .hero h1 em { font-style: normal; color: var(--brand); }
-  .hero-lead { font-size: clamp(17px, 2vw, 19.5px); line-height: 1.6; color: var(--ink-2); max-width: 34em; margin-bottom: 34px; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-actions .cta-num { display: none; }
-  /* Na desktopie z myszą tap-to-call jest słabszy niż na telefonie. Zamiast chować
-     całe CTA (i zostawiać hero bez przycisku), pokazujemy w przycisku sam numer
-     -czytelny od razu, a link tel: nadal działa. „Zobacz cennik" zostaje. */
-  @media (min-width: 861px) and (pointer: fine) {
-    .hero-actions .cta-call { display: none; }
-    .hero-actions .cta-num  { display: inline; }
-  }
-
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    min-height: 52px; padding: 14px 24px;
-    border-radius: var(--r-sm); border: 1.5px solid transparent;
-    font-family: inherit; font-size: 14px; font-weight: 800; font-stretch: 112%;
-    letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
-    transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
-  }
-  .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
-  .btn-primary { background: var(--brand); color: var(--on-brand); box-shadow: 0 6px 18px oklch(0.46 0.115 158 / 0.28); }
-  .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line-2); }
-  /* Podniesienie tylko przy prawdziwym hoverze -na dotyku stan nie „przykleja się" po tapnięciu */
-  @media (hover: hover) {
-    .btn-primary:hover { background: var(--brand-deep); transform: translateY(-1px); box-shadow: 0 10px 24px oklch(0.46 0.115 158 / 0.34); }
-    .btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
-  }
-  /* Wciśnięcie: wyraźny, natychmiastowy feedback także bez hovera (dotyk).
-     Reguła dla .maps-link stoi niżej, ZA jego :hover -inaczej przegrywa kaskadę. */
-  .btn:active { transform: scale(0.97); }
-  .btn-primary:active { background: var(--brand-deep); }
-
-  .hero-photo { margin-top: clamp(36px, 5vw, 56px); }
-  .hero-photo img {
-    width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover;
-    border-radius: var(--r-md); border: 1px solid var(--line);
-  }
-  .hero-photo figcaption {
-    margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--ink-3);
-    display: flex; align-items: center; gap: 9px;
-  }
-  .hero-photo figcaption::before { content: ""; width: 18px; height: 4px; border-radius: 2px; background: var(--brand); }
-
-  @media (max-width: 860px) { .hero-photo img { aspect-ratio: 16 / 10; } }
-  @media (max-width: 560px) { .hero-photo img { aspect-ratio: 4 / 3; } }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-copy > * { animation: rise .65s cubic-bezier(.22,1,.36,1) backwards; }
-    .hero-copy > *:nth-child(2) { animation-delay: .07s; }
-    .hero-copy > *:nth-child(3) { animation-delay: .14s; }
-    .hero-copy > *:nth-child(4) { animation-delay: .21s; }
-    .hero-photo { animation: rise .7s cubic-bezier(.22,1,.36,1) .18s backwards; }
-    @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
-  }
-
-  /* ============ CIEMNY PAS FAKTÓW (tablica informacyjna) ============ */
-  .facts { background: var(--board); color: var(--on-board); }
-  .facts-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0 clamp(28px, 4vw, 56px); padding-block: clamp(28px, 4vw, 40px);
-  }
-  .facts-grid > div { padding: 6px 0; }
-  .facts-grid > div + div { border-left: 1px solid oklch(1 0 0 / 0.22); padding-left: clamp(28px, 4vw, 56px); }
-  .fact-label {
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--on-board-2); margin-bottom: 8px;
-  }
-  .fact-value { font-size: 17.5px; font-weight: 600; line-height: 1.45; }
-  @media (max-width: 760px) {
-    .facts-grid { grid-template-columns: 1fr; gap: 0; padding-block: 14px; }
-    .facts-grid > div { padding: 16px 0; }
-    .facts-grid > div + div { border-left: 0; padding-left: 0; border-top: 1px solid oklch(1 0 0 / 0.22); }
-  }
-
-  /* ============ SEKCJE ============ */
-  section { padding: clamp(64px, 10vw, 104px) 0; }
-  [id] { scroll-margin-top: 86px; }
-  /* Wyższa listwa na mobile (topbar + wiersz kotwic) -reguła musi stać ZA globalną, inaczej przegrywa kaskadę */
-  @media (max-width: 860px) {
-    [id] { scroll-margin-top: 128px; }
-  }
-  .section-title {
-    font-size: clamp(32px, 4.6vw, 56px);
-    font-weight: 800; font-stretch: 122%;
-    line-height: 1.04; letter-spacing: -0.018em;
-    margin-bottom: 26px;
-  }
-  .section-title em { font-style: normal; color: var(--brand); }
-  .section-lead { font-size: clamp(16.5px, 1.8vw, 19px); line-height: 1.6; color: var(--ink-2); max-width: 38em; }
-
-  /* ============ FAQ ============ */
-  .faq { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .faq-list { max-width: 820px; border-top: 1px solid var(--line); }
-  .faq-item { border-bottom: 1px solid var(--line); }
-  .faq-item summary {
-    list-style: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: space-between; gap: 18px;
-    padding: 22px 2px; min-height: 44px;
-    font-size: clamp(17px, 2vw, 20px); font-weight: 700; font-stretch: 112%;
-    line-height: 1.3; letter-spacing: -0.01em; color: var(--ink);
-    transition: color .15s ease;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: var(--r-xs); }
-  @media (hover: hover) { .faq-item summary:hover { color: var(--brand); } }
-  .faq-item summary:active { transform: scale(0.995); }
-  .faq-chevron {
-    width: 22px; height: 22px; flex-shrink: 0;
-    stroke: var(--brand); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
-    transition: transform .2s cubic-bezier(.22, 1, .36, 1);
-  }
-  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
-  .faq-answer { padding: 0 2px 24px; }
-  .faq-answer p { max-width: 68ch; font-size: 16.5px; line-height: 1.65; color: var(--ink-2); }
-  .faq-answer p a { color: var(--brand-deep); font-weight: 600; }
-  @media (prefers-reduced-motion: reduce) { .faq-chevron { transition: none; } }
-
-  /* ============ O OBIEKCIE ============ */
-  .about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .about-lead { max-width: 62ch; }
-  .about-lead p { font-size: clamp(17px, 1.9vw, 19px); line-height: 1.65; color: var(--ink-2); }
-
-  /* Trzy zastosowania -asymetryczna kompozycja z dominującą pierwszą kolumną.
-     Świadomie NIE siatka równych kart i NIE lista z kreską pod każdym wierszem:
-     pionowe fugi + większy typ pierwszej kolumny budują hierarchię. */
-  .about-uses {
-    margin-top: clamp(34px, 4.5vw, 56px);
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
-  }
-  .use { padding: 0 clamp(26px, 3vw, 44px); }
-  .use:first-child { padding-left: 0; }
-  .use + .use { border-left: 1px solid var(--line); }
-  .use-title { font-size: 18px; font-weight: 800; font-stretch: 112%; line-height: 1.28; margin-bottom: 10px; }
-  .use-title::before { content: ""; display: block; width: 26px; height: 4px; border-radius: 2px; background: var(--brand); margin-bottom: 15px; }
-  .use-desc { font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
-  .use--primary .use-title { font-size: clamp(21px, 2.4vw, 27px); font-stretch: 118%; letter-spacing: -0.01em; }
-  .use--primary .use-desc { font-size: 16.5px; max-width: 24em; }
-  @media (max-width: 860px) {
-    .about-uses { grid-template-columns: 1fr; }
-    .use { padding: 22px 0; }
-    .use:first-child { padding-top: 6px; }
-    .use + .use { border-left: 0; border-top: 1px solid var(--line); }
-  }
-
-  /* ============ PAS ZDJĘĆ w sekcji „O obiekcie" (filmstrip, działa bez JS) ============ */
-  .gallery-head { display: none; }
-  html.js .gallery-head {
-    display: flex; justify-content: flex-end;
-    margin: clamp(28px, 4vw, 44px) 0 14px;
-  }
-  html.js .gallery-head + .strip { margin-top: 0; }
-  .strip { margin-top: clamp(28px, 4vw, 44px); }
-  .gallery-arrows { display: none; gap: 10px; }
-  html.js .gallery-arrows { display: flex; }
-  .gallery-arrows button {
-    width: 48px; height: 48px; border-radius: var(--r-sm);
-    background: var(--surface); border: 1.5px solid var(--line-2); color: var(--ink);
-    cursor: pointer; display: grid; place-items: center;
-    transition: background .15s ease, border-color .15s ease, color .15s ease, opacity .15s ease, transform .15s ease;
-  }
-  @media (hover: hover) {
-    .gallery-arrows button:hover:not(:disabled) { border-color: var(--brand); color: var(--brand); }
-  }
-  .gallery-arrows button:active:not(:disabled) { transform: scale(0.94); }
-  /* Kraniec galerii -strzałka gaśnie, gdy nie ma już czego przewijać */
-  .gallery-arrows button:disabled { opacity: 0.35; cursor: default; }
-  .gallery-arrows svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
-  @media (max-width: 760px) { html.js .gallery-arrows { display: none; } }
-
-  .strip {
-    display: flex; gap: 14px;
-    overflow-x: auto; scroll-snap-type: x proximity;
-    padding: 4px 4px 18px;
-    scrollbar-width: thin; scrollbar-color: var(--line-2) transparent;
-    -webkit-overflow-scrolling: touch;
-  }
-  .strip figure { flex-shrink: 0; scroll-snap-align: start; }
-  .strip img {
-    height: clamp(280px, 38vw, 440px); width: auto;
-    border-radius: var(--r-md); border: 1px solid var(--line);
-  }
-  .strip-hint {
-    margin-top: 6px; font-size: 13.5px; font-weight: 600; color: var(--ink-3);
-  }
-  @media (min-width: 761px) { html.js .strip-hint { display: none; } }
-
-  /* ============ TABLICA ATUTÓW ============ */
-  .features-board {
-    margin-top: 44px;
-    background: var(--line); border: 1px solid var(--line);
-    border-radius: var(--r-md); overflow: hidden;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-  }
-  .feature {
-    background: var(--board); color: var(--on-board);
-    padding: clamp(24px, 3vw, 34px) clamp(22px, 3vw, 34px);
-    display: grid; grid-template-columns: 46px 1fr; gap: 8px 18px;
-  }
-  .feature-icon {
-    grid-row: span 2;
-    width: 46px; height: 46px; border-radius: var(--r-sm);
-    border: 1px solid var(--board-line);
-    display: grid; place-items: center;
-    color: var(--board-icon);
-    background: var(--board-icon-bg);
-  }
-  .feature-icon svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 1.6; }
-  .feature h3 { font-size: 19.5px; font-weight: 700; font-stretch: 112%; line-height: 1.2; align-self: center; color: var(--on-board); }
-  .feature p { font-size: 14.5px; line-height: 1.55; color: var(--on-board-2); }
-  /* Pierwszy wiersz tablicy -dwa główne argumenty (lokalizacja i cena) większe od pozostałych,
-     żeby tablica miała hierarchię zamiast sześciu identycznych kafli */
-  .feature--primary { padding-block: clamp(30px, 3.6vw, 42px); }
-  .feature--primary h3 { font-size: clamp(21px, 2.3vw, 25px); font-stretch: 118%; letter-spacing: -0.01em; }
-  .feature--primary p { font-size: 15.5px; }
-  @media (max-width: 760px) {
-    .features-board { grid-template-columns: 1fr; }
-  }
-
-  /* ============ CENNIK ============ */
-  .pricing { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .pricing-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: clamp(20px, 3vw, 28px); margin-top: 44px;
-  }
-  .price-board {
-    background: var(--bg); border: 1px solid var(--line-2);
-    border-radius: var(--r-md); overflow: hidden;
-  }
-  .price-board-head {
-    padding: 18px 26px 20px;
-    background: var(--head-bg); color: var(--head-ink);
-  }
-  .price-board-head h3 { font-size: 19px; font-weight: 800; font-stretch: 115%; letter-spacing: 0.03em; text-transform: uppercase; }
-  .price-board-head p { margin-top: 5px; font-size: 13.5px; font-weight: 500; color: var(--head-ink-2); }
-  .price-board ul { list-style: none; }
-  .price-row {
-    display: flex; align-items: center; justify-content: space-between; gap: 18px;
-    padding: 22px 26px;
-  }
-  .price-row + .price-row { border-top: 1px solid var(--line); }
-  .p-meta { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px; }
-  .p-name { font-size: 21px; font-weight: 700; font-stretch: 112%; }
-  .p-amount { text-align: right; }
-  .p-value {
-    font-size: clamp(38px, 4vw, 48px); font-weight: 800; font-stretch: 122%;
-    line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
-  }
-  .p-unit { font-size: 13.5px; font-weight: 600; color: var(--ink-3); }
-  .p-save {
-    display: inline-block; margin-top: 8px;
-    font-size: 12.5px; font-weight: 700; font-style: normal;
-    color: var(--brand-deep); background: var(--brand-wash-2);
-    padding: 5px 10px; border-radius: var(--r-xs);
-  }
-  .price-row.featured { background: var(--brand-tint); position: relative; border-top: 1px solid var(--line); }
-  .price-row.featured .p-value { color: var(--brand-deep); }
-  .price-tag {
-    position: absolute; top: -11px; right: 22px;
-    background: var(--paint); color: var(--paint-ink);
-    font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 5px 11px; border-radius: 999px;
-  }
-  .pricing-note {
-    margin-top: 28px; display: inline-flex; align-items: center; gap: 10px;
-    font-size: 15px; font-weight: 600; color: var(--ink-2);
-    background: var(--brand-wash); border: 1px solid var(--line);
-    padding: 14px 20px; border-radius: var(--r-sm);
-  }
-  .pricing-note svg { width: 18px; height: 18px; stroke: var(--brand); fill: none; stroke-width: 1.8; flex-shrink: 0; }
-  @media (max-width: 860px) {
-    .pricing-grid { grid-template-columns: 1fr; }
-    .price-row { padding: 18px 20px; }
-    .price-board-head { padding: 16px 20px; }
-  }
-  @media (max-width: 480px) {
-    .p-unit { display: block; margin-top: 5px; }
-  }
-
-  /* ============ LOKALIZACJA ============ */
-  .location-map-wrap { position: relative; margin-top: 44px; }
-  .location-map {
-    position: relative;
-    background: var(--line); border-radius: var(--r-md); overflow: hidden;
-    border: 1px solid var(--line-2); height: clamp(380px, 48vw, 520px);
-  }
-  /* Iframe leży NAD podglądem i odsłania się dopiero po realnym załadowaniu (zdarzenie load) -
-     offline lub awaria Google zostawia widoczny statyczny podgląd zamiast pustej białej ramki */
-  .location-map iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block;
-    opacity: 0; transition: opacity .3s ease;
-  }
-  .location-map.mapa-zaladowana iframe { opacity: 1; }
-  /* Przed zgodą w miejscu mapy stoi statyczny podgląd z naszego serwera (dane © OpenStreetMap) -
-     wygląda jak mapa, ale nie wysyła nigdzie żadnych danych. Iframe Google wstawia dopiero zgoda. */
-  .map-placeholder { position: relative; height: 100%; overflow: hidden; }
-  .map-static { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .map-static { filter: invert(0.92) hue-rotate(180deg) saturate(0.5) contrast(0.92); }
-  }
-  :root[data-theme="dark"] .map-static { filter: invert(0.92) hue-rotate(180deg) saturate(0.5) contrast(0.92); }
-  :root[data-theme="light"] .map-static { filter: saturate(0.85); }
-  .map-pin {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%);
-    width: 44px; height: 44px; color: var(--brand);
-    filter: drop-shadow(0 4px 10px oklch(0.22 0.012 170 / 0.4));
-  }
-  .map-pin svg { width: 100%; height: 100%; stroke: currentColor; fill: var(--surface); stroke-width: 1.8; }
-  .map-card {
-    position: absolute; left: 50%; top: 22px; transform: translateX(-50%);
-    width: min(88%, 400px);
-    background: var(--topbar-bg);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--line); border-top: 3px solid var(--brand);
-    border-radius: var(--r-md); box-shadow: var(--plate-shadow);
-    padding: 16px 20px; text-align: center;
-    display: grid; gap: 12px; justify-items: center;
-  }
-  .map-card p { font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
-  .map-card .btn { min-height: 46px; padding: 11px 20px; }
-  /* Bez JS nie ma jak wyrazić zgody -podpowiadamy istniejącą alternatywę (link na tabliczce adresowej) */
-  .map-card-alt { font-size: 13px; color: var(--ink-3); }
-  html.js .map-card-alt { display: none; }
-  .map-attrib {
-    position: absolute; right: 8px; bottom: 8px;
-    font-size: 11px; font-weight: 600; color: var(--ink-3);
-    background: var(--topbar-bg); padding: 3px 8px; border-radius: var(--r-xs);
-  }
-  [data-map-load] { display: none; }
-  html.js [data-map-load] { display: inline-flex; }
-  @media (max-width: 760px) {
-    /* Niski kontener (340px): karta centralnie u góry zachodziłaby na pinezkę w centrum -
-       schodzi na dół (tabliczka adresowa jest wtedy POD mapą), a atrybucja ucieka do góry */
-    .map-card { top: auto; bottom: 16px; }
-    .map-attrib { bottom: auto; top: 8px; }
-  }
-
-  /* ============ BANER COOKIE (dotyczy wyłącznie mapy Google) ============ */
-  .cookie-baner {
-    position: fixed; left: 16px; right: 16px;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    z-index: 70;
-    max-width: 620px; margin-inline: auto;
-    background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--brand);
-    border-radius: var(--r-md); box-shadow: var(--plate-shadow);
-    padding: 20px 22px;
-  }
-  .cookie-baner p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin-bottom: 14px; }
-  .cookie-baner strong { color: var(--ink); }
-  .cookie-baner-akcje { display: flex; gap: 10px; flex-wrap: wrap; }
-  .cookie-baner .btn { min-height: 46px; padding: 11px 18px; }
-  /* Wąskie telefony: długie etykiety zgody nie mieszczą się obok siebie -
-     przyciski przechodzą na pełną szerokość, jeden pod drugim */
-  @media (max-width: 480px) {
-    .cookie-baner { left: 12px; right: 12px; padding: 18px; }
-    .cookie-baner-akcje { flex-direction: column; align-items: stretch; }
-    .cookie-baner .btn { width: 100%; padding-inline: 12px; }
-    .map-card .btn { width: 100%; padding-inline: 12px; }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .cookie-baner { animation: baner-wjazd .5s cubic-bezier(.22,1,.36,1); }
-    @keyframes baner-wjazd { from { opacity: 0; transform: translateY(18px); } }
-  }
-  @media (max-width: 860px) {
-    /* nad mobilnym paskiem połączenia */
-    .cookie-baner { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
-  }
-  .address-plate {
-    position: absolute; left: 24px; bottom: 24px; z-index: 2;
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--r-md); padding: 24px 26px;
-    box-shadow: var(--plate-shadow);
-    max-width: 360px;
-  }
-  .address-plate .label { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
-  .address-plate .name { font-size: 22px; font-weight: 800; font-stretch: 115%; line-height: 1.1; margin-bottom: 4px; }
-  .address-plate .street { font-size: 15.5px; color: var(--ink-2); margin-bottom: 18px; }
-  .maps-link {
-    display: inline-flex; align-items: center; gap: 9px;
-    min-height: 46px; padding: 11px 18px;
-    background: var(--brand); color: var(--on-brand);
-    border-radius: var(--r-sm);
-    font-size: 13px; font-weight: 800; font-stretch: 110%; letter-spacing: 0.05em; text-transform: uppercase;
-    transition: background .15s ease, transform .15s ease;
-  }
-  @media (hover: hover) {
-    .maps-link:hover { background: var(--brand-deep); transform: translateY(-1px); }
-  }
-  /* Stoi za regułą :hover, żeby wciśnięcie wygrywało kaskadę także na desktopie */
-  .maps-link:active { transform: scale(0.97); }
-  .maps-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
-  @media (max-width: 760px) {
-    .address-plate {
-      position: static; max-width: none; box-shadow: none;
-      margin-top: 16px;
-    }
-    .location-map { height: 340px; }
-  }
-  .location-points {
-    list-style: none; margin-top: clamp(28px, 4vw, 40px);
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-  }
-  .location-points li {
-    font-size: 15.5px; line-height: 1.5; color: var(--ink-2);
-    padding-top: 14px; border-top: 3px solid var(--brand);
-  }
-  .location-points strong { color: var(--ink); }
-  @media (max-width: 860px) { .location-points { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 520px) { .location-points { grid-template-columns: 1fr; gap: 16px; } }
-
-  /* ============ KONTAKT (zielony finał) ============ */
-  .contact { background: var(--brand); color: var(--on-brand); padding: clamp(80px, 12vw, 128px) 0; }
-  .contact .section-title { color: var(--on-brand); max-width: 13em; }
-  .contact-lead { font-size: clamp(16.5px, 1.8vw, 19px); line-height: 1.6; color: var(--on-brand-2); max-width: 34em; margin-bottom: 42px; }
-  .contact-phone {
-    display: inline-flex; align-items: center; gap: clamp(14px, 2vw, 22px);
-    font-size: clamp(27px, 6.4vw, 72px);
-    font-weight: 800; font-stretch: 122%; letter-spacing: -0.015em;
-    line-height: 1.1; color: var(--on-brand);
-    font-variant-numeric: tabular-nums;
-    border-bottom: 4px solid oklch(1 0 0 / 0.35);
-    padding-bottom: 10px;
-    transition: border-color .18s ease;
-  }
-  @media (hover: hover) {
-    .contact-phone:hover { border-color: var(--on-brand); }
-  }
-  .contact-phone svg {
-    width: clamp(24px, 4.6vw, 52px); height: clamp(24px, 4.6vw, 52px);
-    stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0;
-  }
-  .contact-sub { margin-top: 26px; font-size: 15px; font-weight: 600; color: var(--on-brand-2); }
-
-  /* ============ STOPKA ============ */
-  footer { background: var(--brand-dark); color: var(--on-footer); padding: 56px 0 32px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
-  .footer-brand { display: flex; align-items: flex-start; gap: 13px; font-size: 22px; font-weight: 800; font-stretch: 115%; line-height: 1.15; }
-  .footer-brand .brand-mark { background: var(--footer-mark-bg); color: var(--footer-mark-ink); }
-  .footer-brand .small { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-footer-2); margin-top: 7px; }
-  .footer-col h3 { font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-footer-2); margin-bottom: 14px; }
-  .footer-col p, .footer-col a { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.7; color: var(--on-footer); }
-  .footer-col a { transition: opacity .15s ease; }
-  @media (hover: hover) {
-    .footer-col a:hover { opacity: 0.75; }
-  }
-  .footer-bottom {
-    display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
-    padding-top: 24px; border-top: 1px solid oklch(1 0 0 / 0.2);
-    font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-footer-2);
-  }
-  .footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
-  @media (hover: hover) {
-    .footer-bottom a:hover { color: var(--on-footer); }
-  }
-  @media (max-width: 760px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { flex-direction: column; }
-  }
-
-  /* ============ MOBILNY PASEK POŁĄCZENIA ============ */
-  .callbar { display: none; }
-  /* Pasek aktywny wszędzie tam, gdzie chowa się górna nawigacja (bez martwej strefy 761-860px) */
-  @media (max-width: 860px) {
-    .callbar {
-      display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-      padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
-      background: var(--topbar-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--line);
-      transition: transform .3s ease;
-    }
-    .callbar.schowany { transform: translateY(110%); }
-    .callbar a {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 54px; border-radius: var(--r-sm);
-      background: var(--brand); color: var(--on-brand);
-      font-size: 14.5px; font-weight: 800; font-stretch: 112%;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      box-shadow: 0 6px 18px oklch(0.46 0.115 158 / 0.3);
-      transition: transform .15s ease, background .15s ease;
-    }
-    .callbar a:active { background: var(--brand-deep); transform: scale(0.97); }
-    .callbar svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; }
-    /* Rezerwa na pasek wewnątrz ciemnej stopki, nie na <body> -inaczej przy schowanym
-       pasku pod stopką prześwitywałby jasny pas tła strony. */
-    footer { padding-bottom: calc(32px + 78px + env(safe-area-inset-bottom, 0px)); }
-  }
-
-  /* ============ REVEAL (tylko z JS, treść zawsze widoczna bez niego) ============ */
-  html.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
-  html.js .reveal.in { opacity: 1; transform: none; }
-
-  /* ================================================================
-     „NOCNA ZMIANA" -tryb ciemny.
-     Ten sam obiekt po zmroku: asfalt czernieje, betonowe tablice stają się
-     łupkowe, a zieleń bram zaczyna świecić jak podświetlony znak parkingowy.
-     Żółta farba znakująca zostaje jedynym ciepłem.
-
-     Cały motyw to wyłącznie zmienne :root -komponenty czytają je same z siebie.
-     • bez JS: sterują preferencje systemu (blok @media poniżej),
-       chyba że użytkownik dokonał świadomego wyboru (atrybut data-theme),
-     • z przełącznikiem: wybór zapisuje data-theme="dark|light" i wygrywa.
-     Oba zestawy zmiennych MUSZĄ pozostać identyczne -zmieniaj je razem.
-     ================================================================ */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-      --bg:          oklch(0.205 0.012 232);
-      --surface:     oklch(0.245 0.013 232);
-      --ink:         oklch(0.955 0.006 230);
-      --ink-2:       oklch(0.805 0.013 230);
-      --ink-3:       oklch(0.70 0.016 230);
-      --line:        oklch(0.335 0.014 232);
-      --line-2:      oklch(0.44 0.018 232);
-      --brand:       oklch(0.60 0.132 156);
-      --brand-deep:  oklch(0.68 0.138 156);
-      --brand-dark:  oklch(0.20 0.026 160);
-      --brand-tint:  oklch(0.305 0.05 158);
-      --on-brand:    oklch(0.15 0.024 160);
-      --on-brand-2:  oklch(0.17 0.03 160);
-      --board:       oklch(0.275 0.015 232);
-      --board-line:  oklch(1 0 0 / 0.1);
-      --on-board:    oklch(0.955 0.006 230);
-      --on-board-2:  oklch(0.78 0.013 230);
-      --paint:       oklch(0.83 0.15 92);
-      --paint-ink:   oklch(0.24 0.05 92);
-      --topbar-bg:      oklch(0.205 0.012 232 / 0.85);
-      --brand-wash:     oklch(0.60 0.132 156 / 0.16);
-      --brand-wash-2:   oklch(0.60 0.132 156 / 0.2);
-      --head-bg:        oklch(0.275 0.015 232);
-      --head-ink:       oklch(0.955 0.006 230);
-      --head-ink-2:     oklch(0.74 0.015 230);
-      --on-footer:      oklch(0.955 0.006 230);
-      --on-footer-2:    oklch(0.72 0.015 230);
-      --footer-mark-bg: oklch(0.60 0.132 156);
-      --footer-mark-ink:oklch(0.15 0.024 160);
-      --plate-shadow:   0 18px 44px oklch(0 0 0 / 0.5);
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg:          oklch(0.205 0.012 232);
-    --surface:     oklch(0.245 0.013 232);
-    --ink:         oklch(0.955 0.006 230);
-    --ink-2:       oklch(0.805 0.013 230);
-    --ink-3:       oklch(0.70 0.016 230);
-    --line:        oklch(0.335 0.014 232);
-    --line-2:      oklch(0.44 0.018 232);
-    --brand:       oklch(0.60 0.132 156);
-    --brand-deep:  oklch(0.68 0.138 156);
-    --brand-dark:  oklch(0.20 0.026 160);
-    --brand-tint:  oklch(0.305 0.05 158);
-    --on-brand:    oklch(0.15 0.024 160);
-    --on-brand-2:  oklch(0.17 0.03 160);
-    --board:       oklch(0.275 0.015 232);
-    --board-line:  oklch(1 0 0 / 0.1);
-    --on-board:    oklch(0.955 0.006 230);
-    --on-board-2:  oklch(0.78 0.013 230);
-    --paint:       oklch(0.83 0.15 92);
-    --paint-ink:   oklch(0.24 0.05 92);
-    --topbar-bg:      oklch(0.205 0.012 232 / 0.85);
-    --brand-wash:     oklch(0.60 0.132 156 / 0.16);
-    --brand-wash-2:   oklch(0.60 0.132 156 / 0.2);
-    --head-bg:        oklch(0.275 0.015 232);
-    --head-ink:       oklch(0.955 0.006 230);
-    --head-ink-2:     oklch(0.74 0.015 230);
-    --on-footer:      oklch(0.955 0.006 230);
-    --on-footer-2:    oklch(0.72 0.015 230);
-    --footer-mark-bg: oklch(0.60 0.132 156);
-    --footer-mark-ink:oklch(0.15 0.024 160);
-    --plate-shadow:   0 18px 44px oklch(0 0 0 / 0.5);
-  }
-
-  /* ============ TRYB WYSOKIEGO KONTRASTU (Windows) ============ */
-  @media (forced-colors: active) {
-    /* Przyciski tracą tło w forced-colors; jawna ramka utrzymuje ich granice */
-    .btn, .maps-link, .callbar a, .topbar-anchors a, .price-tag { border: 1.5px solid ButtonText; }
-  }
-
-  /* ============ DRUK (oferta w PDF / na papierze) ============ */
-  @media print {
-    .topbar, .callbar, .gallery-arrows, .strip-hint, .skip-link, .hero-actions, .cookie-baner { display: none !important; }
-    html.js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    section, .facts { padding: 20px 0; }
-    .hero { padding: 12px 0 8px; }
-    /* Pas zdjęć zawija się w siatkę zamiast przewijania */
-    .strip { flex-wrap: wrap; overflow: visible; padding: 0; }
-    .strip img { height: 150px; }
-    /* Mapa nie drukuje się sensownie; tabliczka adresowa wystarcza */
-    .location-map { display: none; }
-    .address-plate { position: static; box-shadow: none; max-width: none; border: 1px solid var(--line-2); margin-top: 0; }
-  }
-
-  /* ============ OGRANICZENIE RUCHU (dostępność) ============ */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-      scroll-behavior: auto !important;
-    }
-    html.js .reveal { opacity: 1; transform: none; transition: none; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 <script>
   /* Motyw: świadomy wybór (jeśli istnieje) ustawiamy przed pierwszym malowaniem, by uniknąć mignięcia.
-     Brak wyboru -o motywie decyduje preferencja systemu (blok @media w stylach). */
-  (function(){try{var t=localStorage.getItem('motyw');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+     Klasę `js` też, żeby elementy odsłaniane przy przewijaniu nie mrugnęły.
+     Gdyby app.js nie wystartował (404, blokada skryptów), timer zdejmuje klasę i strona
+     wraca do pełnego wariantu bez JS. */
+  (function(){var h=document.documentElement;try{var t=localStorage.getItem('motyw');if(t==='dark'||t==='light')h.setAttribute('data-theme',t);}catch(e){}h.classList.add('js');setTimeout(function(){if(!window.__pkGotowe)h.classList.remove('js');},2500);})();
 </script>
+<script src="app.js" defer></script>
 </head>
 <body>
 
 <a class="skip-link" href="#tresc">Przejdź do treści</a>
 
 <!-- ================================================================
-     BANER COOKIE -widoczny do czasu decyzji w sprawie mapy Google.
-     Wizualnie fixed na dole; w DOM zaraz za skip-linkiem, żeby użytkownik
-     klawiatury docierał do decyzji na początku, a nie za stopką.
-     ================================================================ -->
-<div class="cookie-baner" id="cookie-baner" role="region" aria-label="Zgoda na pliki cookie" hidden>
-  <p><strong>Pliki cookie tylko od mapy Google.</strong> Ta strona sama nie zapisuje żadnych cookies.
-  Chcemy pokazać Ci interaktywną mapę dojazdu od Google, a ona może zapisać swoje pliki cookie —
-  wczytamy ją dopiero za Twoją zgodą.</p>
-  <div class="cookie-baner-akcje">
-    <button type="button" class="btn btn-primary" data-cookie-akceptuj>Akceptuję, pokaż mapę</button>
-    <button type="button" class="btn btn-secondary" data-cookie-odrzuc>Nie teraz</button>
-  </div>
-</div>
-
-<!-- ================================================================
-     GÓRNA LISTWA
+     GÓRNA LISTWA -nawigacja między stronami (prawdziwe linki, działa bez JS)
      ================================================================ -->
 <header class="topbar">
   <div class="container topbar-inner">
-    <a href="#tresc" class="brand">
+    <a href="index.html" class="brand" aria-current="page">
       <span class="brand-mark" aria-hidden="true">P</span>
-      <span>Parking Pasaż Parsęta</span>
+      <span class="brand-name">Parking Pasaż Parsęta</span>
     </a>
-    <nav class="topbar-nav" aria-label="Nawigacja główna">
-      <a href="#o-obiekcie">O obiekcie</a>
-      <a href="#cennik">Cennik</a>
-      <a href="#lokalizacja">Lokalizacja</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
+    <nav class="mainnav" aria-label="Nawigacja główna">
+      <a href="cennik.html">Cennik</a>
+      <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+      <a href="dla-firm.html">Dla firm</a>
+      <a href="dojazd.html">Dojazd</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="topbar-actions">
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
@@ -1014,18 +158,49 @@
       </button>
       <a href="tel:+48602464010" class="topbar-tel" aria-label="Zadzwoń: +48 602 464 010">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
-        +48 602 464 010
+        <span class="tel-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
       </a>
+      <button type="button" class="navtoggle" popovertarget="menu-witryny" aria-label="Menu witryny" title="Menu witryny">
+        <svg class="icon-burger" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
     </div>
   </div>
-  <nav class="topbar-anchors" aria-label="Skróty do sekcji">
-    <a href="#o-obiekcie">O obiekcie</a>
-    <a href="#cennik">Cennik</a>
-    <a href="#lokalizacja">Lokalizacja</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
 </header>
+
+<!-- ================================================================
+     ARKUSZ MENU (≤900px)
+
+     Natywny popover: warstwa górna, Esc, zamknięcie kliknięciem obok
+     i powrót fokusu na przycisk pochodzą od przeglądarki, nie od JS.
+     Bez wsparcia popovera reguła @supports w styles.css chowa ten blok,
+     a nawigację przejmują chipy w listwie.
+     ================================================================ -->
+<div class="navsheet" id="menu-witryny" popover>
+  <nav class="navsheet-nav" aria-label="Nawigacja witryny">
+    <a href="index.html" aria-current="page">Strona główna</a>
+    <a href="cennik.html">Cennik</a>
+    <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+    <a href="dla-firm.html">Dla firm</a>
+    <a href="dojazd.html">Dojazd</a>
+    <a href="faq.html">Pytania i odpowiedzi</a>
+  </nav>
+  <div class="navsheet-foot">
+    <a class="navsheet-tel" href="tel:+48602464010" aria-label="Zadzwoń: +48 602 464 010">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
+      +48&nbsp;602&nbsp;464&nbsp;010
+    </a>
+    <p class="navsheet-godziny">Telefon 8:00-18:00. Obiekt dostępny 24/7.</p>
+    <div class="navsheet-theme">
+      <span>Motyw</span>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2v2.4M12 19.6V22M4.22 4.22l1.7 1.7M18.08 18.08l1.7 1.7M2 12h2.4M19.6 12H22M4.22 19.78l1.7-1.7M18.08 5.92l1.7-1.7"></path></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- /navsheet -->
 
 <main id="tresc" tabindex="-1">
 
@@ -1037,7 +212,7 @@
 
     <div class="hero-copy">
       <div class="hero-meta">
-        <span class="live">Miejsca otwarte i zamykane · najem od zaraz</span>
+        <span class="live">Miejsca otwarte i zamykane</span>
         <span>Kołobrzeg, ul. Łopuskiego 27</span>
       </div>
       <h1>Wynajem miejsc parkingowych <em>w&nbsp;centrum Kołobrzegu.</em></h1>
@@ -1051,12 +226,12 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
           <span class="cta-call">Zadzwoń teraz</span><span class="cta-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
         </a>
-        <a href="#cennik" class="btn btn-secondary">Zobacz cennik</a>
+        <a href="cennik.html" class="btn btn-secondary">Zobacz cennik</a>
       </div>
     </div>
 
     <figure class="hero-photo">
-      <img src="zdjecia/widok1.jpg" width="1672" height="941" fetchpriority="high" decoding="async"
+      <img src="zdjecia/parking-kolobrzeg-garaz-wielopoziomowy.jpg" width="1672" height="941" fetchpriority="high" decoding="async"
            alt="Parking w Kołobrzegu, garaż wielopoziomowy Pasaż Parsęta, ul. Łopuskiego 27">
       <figcaption>Parking Pasaż Parsęta</figcaption>
     </figure>
@@ -1065,13 +240,13 @@
 </section>
 
 <!-- ================================================================
-     ZIELONY PAS FAKTÓW
+     CIEMNY PAS FAKTÓW
      ================================================================ -->
 <div class="facts on-dark" role="region" aria-label="Najważniejsze informacje">
   <div class="container facts-grid">
     <div>
       <div class="fact-label">Lokalizacja</div>
-      <div class="fact-value">Pasaż Parsęta · ul. Łopuskiego 27</div>
+      <div class="fact-value">Pasaż Parsęta, ul. Łopuskiego 27</div>
     </div>
     <div>
       <div class="fact-label">Najem od</div>
@@ -1079,63 +254,71 @@
     </div>
     <div>
       <div class="fact-label">Dostęp</div>
-      <div class="fact-value">Pilot + brelok zbliżeniowy, 24 godziny / dobę</div>
+      <div class="fact-value">Pilot i brelok zbliżeniowy, 24 godziny na dobę</div>
     </div>
   </div>
 </div>
 
 <!-- ================================================================
-     O OBIEKCIE
+     O OBIEKCIE -czym to jest i do czego służy
      ================================================================ -->
-<section id="o-obiekcie" class="about">
+<section id="o-obiekcie">
   <div class="container">
 
-      <div class="about-copy reveal">
-        <h2 class="section-title">Garaż, schowek lub <em>dodatkowa przestrzeń.</em></h2>
-        <div class="about-lead">
-          <p>
-            Prywatne miejsce postojowe w ścisłym centrum Kołobrzegu. Wynajmij bezpieczną
-            przestrzeń w wielopoziomowym garażu naziemnym i zapomnij o szukaniu wolnego
-            miejsca w strefie płatnego parkowania.
-          </p>
-        </div>
-        <div class="about-uses">
-          <div class="use use--primary">
-            <h3 class="use-title">Twoje auto pod dachem</h3>
-            <p class="use-desc">Wielopoziomowy garaż naziemny w samym centrum. Koniec z krążeniem po strefie płatnego parkowania i szukaniem wolnego miejsca.</p>
-          </div>
-          <div class="use">
-            <h3 class="use-title">Prywatny schowek</h3>
-            <p class="use-desc">Motocykl, rowery, opony, sprzęt sezonowy. Bezpiecznie, pod dachem i pod ręką.</p>
-          </div>
-          <div class="use">
-            <h3 class="use-title">Dodatkowa przestrzeń</h3>
-            <p class="use-desc">Metry w centrum, których nie masz pod blokiem. Wynajem długoterminowy, faktura VAT.</p>
-          </div>
-        </div>
-      </div>
+    <h2 class="section-title">Garaż, schowek lub <em>dodatkowa przestrzeń.</em></h2>
+    <div class="prose-narrow">
+      <p>
+        Prywatne miejsce postojowe w ścisłym centrum Kołobrzegu. Wynajmij bezpieczną
+        przestrzeń w wielopoziomowym garażu naziemnym i zapomnij o szukaniu wolnego
+        miejsca w strefie płatnego parkowania.
+      </p>
+    </div>
 
-      <!-- Pas zdjęć obiektu (dawna karuzela z wersji produkcyjnej, ta sama kolejność) -->
-      <div class="gallery-head">
-        <div class="gallery-arrows">
-          <button type="button" data-strip-prev aria-label="Przewiń galerię w lewo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
-          </button>
-          <button type="button" data-strip-next aria-label="Przewiń galerię w prawo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
-          </button>
-        </div>
+    <div class="uses">
+      <div class="use use--primary">
+        <h3 class="use-title">Twoje auto pod dachem</h3>
+        <p class="use-desc">Wielopoziomowy garaż naziemny w samym centrum. Koniec z krążeniem po strefie płatnego parkowania i szukaniem wolnego miejsca.</p>
+        <a class="link-next" href="cennik.html">Stawki i warunki umowy
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+        </a>
       </div>
-      <div class="strip" tabindex="0" role="group" aria-label="Galeria zdjęć parkingu, przewijana w poziomie">
-        <figure><img loading="lazy" decoding="async" src="zdjecia/a_1-1200.jpg" width="1200" height="900" alt="Zamykane miejsce parkingowe w garażu w Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/a_2-1200.jpg" width="1200" height="900" alt="Otwarte miejsce parkingowe na wynajem w Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/a_3-1200.jpg" srcset="zdjecia/a_3-1200.jpg 675w, zdjecia/a_3.jpg 1152w" sizes="248px" width="675" height="1200" alt="Wejście do parkingu Pasaż Parsęta w Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/aa2-1200.jpg" srcset="zdjecia/aa2-1200.jpg 1200w, zdjecia/aa2.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Wjazd na parking przy ul. Łopuskiego 27 w Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/aa3-1200.jpg" srcset="zdjecia/aa3-1200.jpg 675w, zdjecia/aa3.jpg 1152w" sizes="248px" width="675" height="1200" alt="Budynek garażu wielopoziomowego w centrum Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/aa4-1200.jpg" srcset="zdjecia/aa4-1200.jpg 1200w, zdjecia/aa4.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Przestrzeń parkingowa wewnątrz garażu w Kołobrzegu"></figure>
-        <figure><img loading="lazy" decoding="async" src="zdjecia/aa5-1200.jpg" srcset="zdjecia/aa5-1200.jpg 1200w, zdjecia/aa5.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Miejsca postojowe w garażu naziemnym Kołobrzeg centrum"></figure>
+      <div class="use">
+        <h3 class="use-title">Prywatny schowek</h3>
+        <p class="use-desc">Motocykl, rowery, opony, sprzęt sezonowy. Bezpiecznie, pod dachem i pod ręką.</p>
+        <a class="link-next" href="miejsca-zamykane.html">Miejsca zamykane
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+        </a>
       </div>
-      <p class="strip-hint">Przesuń w bok, by zobaczyć więcej →</p>
+      <div class="use">
+        <h3 class="use-title">Dodatkowa przestrzeń</h3>
+        <p class="use-desc">Metry w centrum, których nie masz pod blokiem. Wynajem długoterminowy, faktura VAT.</p>
+        <a class="link-next" href="dla-firm.html">Najem dla firm
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Pas zdjęć obiektu (filmstrip, przewija się natywnie także bez JS) -->
+    <div class="gallery-head">
+      <div class="gallery-arrows">
+        <button type="button" data-strip-prev aria-label="Przewiń galerię w lewo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <button type="button" data-strip-next aria-label="Przewiń galerię w prawo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="strip" tabindex="0" role="group" aria-label="Galeria zdjęć parkingu, przewijana w poziomie">
+      <figure><img loading="lazy" decoding="async" src="zdjecia/miejsce-zamykane-garaz-kolobrzeg-1200.jpg" width="1200" height="900" alt="Zamykane miejsce parkingowe w garażu w Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/miejsce-parkingowe-otwarte-kolobrzeg-1200.jpg" width="1200" height="900" alt="Otwarte miejsce parkingowe na wynajem w Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/wejscie-na-parking-kolobrzeg-1200.jpg" srcset="zdjecia/wejscie-na-parking-kolobrzeg-1200.jpg 675w, zdjecia/wejscie-na-parking-kolobrzeg.jpg 1152w" sizes="248px" width="675" height="1200" alt="Wejście do parkingu Pasaż Parsęta w Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/wjazd-na-parking-lopuskiego-kolobrzeg-1200.jpg" srcset="zdjecia/wjazd-na-parking-lopuskiego-kolobrzeg-1200.jpg 1200w, zdjecia/wjazd-na-parking-lopuskiego-kolobrzeg.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Wjazd na parking przy ul. Łopuskiego 27 w Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/budynek-garazu-centrum-kolobrzeg-1200.jpg" srcset="zdjecia/budynek-garazu-centrum-kolobrzeg-1200.jpg 675w, zdjecia/budynek-garazu-centrum-kolobrzeg.jpg 1152w" sizes="248px" width="675" height="1200" alt="Budynek garażu wielopoziomowego w centrum Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/wnetrze-garazu-parking-kolobrzeg-1200.jpg" srcset="zdjecia/wnetrze-garazu-parking-kolobrzeg-1200.jpg 1200w, zdjecia/wnetrze-garazu-parking-kolobrzeg.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Przestrzeń parkingowa wewnątrz garażu w Kołobrzegu"></figure>
+      <figure><img loading="lazy" decoding="async" src="zdjecia/miejsca-postojowe-garaz-naziemny-kolobrzeg-1200.jpg" srcset="zdjecia/miejsca-postojowe-garaz-naziemny-kolobrzeg-1200.jpg 1200w, zdjecia/miejsca-postojowe-garaz-naziemny-kolobrzeg.jpg 2048w" sizes="(max-width: 740px) 500px, (max-width: 1160px) 68vw, 785px" width="2048" height="1152" alt="Miejsca postojowe w garażu naziemnym Kołobrzeg centrum"></figure>
+    </div>
+    <p class="strip-hint">Przesuń w bok, by zobaczyć więcej</p>
 
   </div>
 </section>
@@ -1143,7 +326,7 @@
 <!-- ================================================================
      ATUTY -jedna ciemna tablica informacyjna
      ================================================================ -->
-<section aria-labelledby="atuty-title">
+<section aria-labelledby="atuty-title" class="tight">
   <div class="container">
     <h2 class="section-title reveal" id="atuty-title">Cztery powody, <br>by zostawić auto <em>u nas.</em></h2>
 
@@ -1178,102 +361,55 @@
 </section>
 
 <!-- ================================================================
-     CENNIK -dwie tablice cenowe, wszystko widoczne od razu
+     CENNIK -skrót, pełne stawki na cennik.html
      ================================================================ -->
-<section id="cennik" class="pricing">
+<section id="cennik-skrot" class="pricing tight">
   <div class="container">
-    <h2 class="section-title reveal">Przejrzyste ceny, <em>bez ukrytych opłat.</em></h2>
+    <h2 class="section-title">Stawka spada <em>z długością umowy.</em></h2>
+    <p class="section-lead">
+      Dwa rodzaje miejsc i trzy okresy najmu. Najkrótsza umowa to jeden miesiąc,
+      najniższa stawka obowiązuje przy umowie na 12 miesięcy.
+    </p>
 
-    <div class="pricing-grid">
-
-      <!-- Miejsca otwarte -->
-      <div class="price-board reveal">
-        <div class="price-board-head on-dark">
-          <h3>Miejsca otwarte</h3>
-          <p>Miejsce postojowe w garażu wielopoziomowym.</p>
-        </div>
-        <ul>
-          <li class="price-row">
-            <div><span class="p-meta">Najem miesięczny</span><span class="p-name">Elastyczny</span></div>
-            <div class="p-amount"><span class="p-value">500</span> <span class="p-unit">zł / miesiąc</span></div>
-          </li>
-          <li class="price-row">
-            <div><span class="p-meta">Najem na 6 miesięcy</span><span class="p-name">Półroczny</span></div>
-            <div class="p-amount"><span class="p-value">450</span> <span class="p-unit">zł / miesiąc</span><br><span class="p-save">Oszczędzasz 300&nbsp;zł</span></div>
-          </li>
-          <li class="price-row featured">
-            <span class="price-tag">Najlepsza cena</span>
-            <div><span class="p-meta">Najem na 12 miesięcy</span><span class="p-name">Roczny</span></div>
-            <div class="p-amount"><span class="p-value">400</span> <span class="p-unit">zł / miesiąc</span><br><span class="p-save">Oszczędzasz 1200&nbsp;zł rocznie</span></div>
-          </li>
-        </ul>
+    <div class="rate-strip rate-strip--2 on-dark reveal">
+      <div>
+        <div class="r-label">Miejsce otwarte, od</div>
+        <div class="r-value">400<span class="r-cur">zł</span></div>
+        <div class="r-unit">za miesiąc przy umowie na 12 miesięcy<br>(500 zł przy umowie miesięcznej)</div>
       </div>
-
-      <!-- Miejsca zamykane -->
-      <div class="price-board reveal">
-        <div class="price-board-head on-dark">
-          <h3>Miejsca zamykane</h3>
-          <p>Boks z własną zamykaną bramą.</p>
-        </div>
-        <ul>
-          <li class="price-row">
-            <div><span class="p-meta">Najem miesięczny</span><span class="p-name">Elastyczny</span></div>
-            <div class="p-amount"><span class="p-value">600</span> <span class="p-unit">zł / miesiąc</span></div>
-          </li>
-          <li class="price-row">
-            <div><span class="p-meta">Najem na 6 miesięcy</span><span class="p-name">Półroczny</span></div>
-            <div class="p-amount"><span class="p-value">550</span> <span class="p-unit">zł / miesiąc</span><br><span class="p-save">Oszczędzasz 300&nbsp;zł</span></div>
-          </li>
-          <li class="price-row featured">
-            <span class="price-tag">Najlepsza cena</span>
-            <div><span class="p-meta">Najem na 12 miesięcy</span><span class="p-name">Roczny</span></div>
-            <div class="p-amount"><span class="p-value">500</span> <span class="p-unit">zł / miesiąc</span><br><span class="p-save">Oszczędzasz 1200&nbsp;zł rocznie</span></div>
-          </li>
-        </ul>
+      <div>
+        <div class="r-label">Miejsce zamykane, od</div>
+        <div class="r-value">500<span class="r-cur">zł</span></div>
+        <div class="r-unit">za miesiąc przy umowie na 12 miesięcy<br>(600 zł przy umowie miesięcznej)</div>
       </div>
-
     </div>
 
-    <div class="pricing-note reveal">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle></svg>
-      Wystawiamy fakturę VAT
+    <div class="btn-row">
+      <a href="cennik.html" class="btn btn-primary">Zobacz cennik</a>
     </div>
-
   </div>
 </section>
 
 <!-- ================================================================
-     LOKALIZACJA
+     LOKALIZACJA -skrót, dokładny dojazd na dojazd.html.
+     Podglad mapy jest statyczny i serwowany z naszego hostingu, więc ta
+     strona nie wysyła do Google żadnych zapytań i nie potrzebuje zgody.
      ================================================================ -->
 <section id="lokalizacja">
   <div class="container">
 
-    <div class="reveal">
-      <h2 class="section-title">Centrum <em>Kołobrzegu.</em></h2>
-      <p class="section-lead">
-        Garaż znajduje się w pasażu handlowym Parsęta, w ścisłym centrum Kołobrzegu.
-        Lokalizacja w strefie płatnego parkowania sprawia, że wynajem miejsca to realna oszczędność.
-      </p>
-    </div>
+    <h2 class="section-title">Centrum <em>Kołobrzegu.</em></h2>
+    <p class="section-lead">
+      Garaż stoi w pasażu handlowym Parsęta, w ścisłym centrum miasta.
+      Wokół obowiązuje strefa płatnego parkowania, więc stałe miejsce zwraca się każdego dnia.
+    </p>
 
     <div class="location-map-wrap reveal">
-      <div class="location-map" data-map-wrap>
-        <!-- Przed zgodą: statyczny podgląd mapy z naszego serwera (dane © OpenStreetMap, pin w centrum
-             kadru = dokładna lokalizacja) -zero zapytań do Google. Iframe Google Maps wstawia dopiero
-             akceptacja w banerze cookie albo przycisk poniżej. Bez JS przycisk jest ukryty -
-             kieruje wtedy link „Otwórz w Google Maps" na tabliczce adresowej. -->
+      <div class="location-map">
         <div class="map-placeholder">
-          <img class="map-static" src="zdjecia/mapa-podglad.jpg" width="1400" height="640" loading="lazy" decoding="async"
+          <img class="map-static" src="zdjecia/mapa-parking-kolobrzeg-lopuskiego.jpg" width="1400" height="640" loading="lazy" decoding="async"
                alt="Mapa okolicy: Parking Pasaż Parsęta przy ul. Łopuskiego 27 w centrum Kołobrzegu">
           <span class="map-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.4-6.5-10.2a6.5 6.5 0 0113 0C18.5 15.6 12 21 12 21z"></path><circle cx="12" cy="10.8" r="2.3"></circle></svg></span>
-          <div class="map-card">
-            <p>Interaktywna mapa Google wczytuje się po zgodzie na pliki cookie.</p>
-            <button type="button" class="btn btn-primary" data-map-load
-                    data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.8278871446352!2d15.571156506192919!3d54.17665029027918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470015a2e929a23d%3A0x237d68a1921408e3!2sParking%20w%20Pasa%C5%BCu%20Pars%C4%99ta!5e0!3m2!1spl!2spl!4v1781370378148!5m2!1spl!2spl">
-              Pokaż mapę Google
-            </button>
-            <p class="map-card-alt">Możesz też otworzyć lokalizację bezpośrednio w Google Maps, przyciskiem przy adresie.</p>
-          </div>
           <a class="map-attrib" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
         </div>
       </div>
@@ -1281,9 +417,9 @@
         <div class="label">Adres</div>
         <div class="name">Parking Pasaż Parsęta</div>
         <div class="street">ul. Łopuskiego 27, 78-100 Kołobrzeg</div>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=ul.+%C5%81opuskiego+27%2C+Ko%C5%82obrzeg" target="_blank" rel="noopener" class="maps-link">
-          Otwórz w Google Maps
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"></path></svg>
+        <a href="dojazd.html" class="maps-link">
+          Dojazd i mapa
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
     </div>
@@ -1299,83 +435,18 @@
 </section>
 
 <!-- ================================================================
-     FAQ -najczęstsze pytania o wynajem
-     ================================================================ -->
-<section id="faq" class="faq">
-  <div class="container">
-    <h2 class="section-title reveal">Najczęstsze pytania <em>o&nbsp;wynajem.</em></h2>
-    <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary>
-          <span>Ile kosztuje wynajem miejsca parkingowego w&nbsp;Kołobrzegu?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Miejsce otwarte to 500&nbsp;zł/mc przy umowie miesięcznej, 450&nbsp;zł/mc przy 6&nbsp;miesiącach i 400&nbsp;zł/mc przy umowie rocznej. Miejsce zamykane&nbsp;— odpowiednio 600, 550 i&nbsp;500&nbsp;zł/mc. Im dłuższy okres, tym niższa stawka, a&nbsp;cena jest stała i&nbsp;bez ukrytych opłat.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>
-          <span>Jaki jest minimalny okres wynajmu?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Umowy zawieramy już od jednego miesiąca. Dostępny jest najem miesięczny, półroczny i&nbsp;roczny&nbsp;— przy dłuższym okresie miesięczna stawka jest niższa.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>
-          <span>Czym różni się miejsce otwarte od zamykanego?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Miejsce otwarte to wyznaczone stanowisko w&nbsp;hali garażowej&nbsp;— auto stoi pod dachem, osłonięte przed deszczem, śniegiem i&nbsp;słońcem. Miejsce zamykane to prywatny, zamykany boks, który daje dodatkową ochronę i&nbsp;może służyć również jako schowek.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>
-          <span>Czy parking jest monitorowany i&nbsp;bezpieczny?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Tak. Obiekt jest objęty monitoringiem 24/7, a&nbsp;wjazd odbywa się przez automatyczną bramę na pilota, z&nbsp;dostępem na kartę RFID. Na teren dostają się wyłącznie osoby wynajmujące miejsce.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>
-          <span>Gdzie znajduje się parking i&nbsp;jak dojechać?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Parking Pasaż Parsęta mieści się przy ul.&nbsp;ppor.&nbsp;Edmunda Łopuskiego&nbsp;27, w&nbsp;ścisłym centrum Kołobrzegu&nbsp;— 5&nbsp;minut pieszo od starówki. Dokładną lokalizację i&nbsp;trasę dojazdu pokazuje mapa w&nbsp;sekcji <a href="#lokalizacja">Lokalizacja</a>.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>
-          <span>Jak wynająć miejsce parkingowe?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Zadzwoń pod <a href="tel:+48602464010">+48&nbsp;602&nbsp;464&nbsp;010</a> (8:00–18:00). Sprawdzimy dostępność, umówimy oglądanie obiektu i&nbsp;podpiszemy umowę. Firmom wystawiamy fakturę.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     KONTAKT
+     KONTAKT -zielony finał
      ================================================================ -->
 <section id="kontakt" class="contact on-dark">
   <div class="container">
     <h2 class="section-title reveal">Zadzwoń i&nbsp;zarezerwuj swoje miejsce.</h2>
-    <p class="contact-lead reveal">Skontaktuj się z nami, sprawdzimy dostępność i pokażemy obiekt.</p>
+    <p class="contact-lead reveal">Sprawdzimy dostępność, pokażemy obiekt i ustalimy warunki umowy.</p>
     <div class="reveal">
       <a href="tel:+48602464010" class="contact-phone">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
-        +48 602 464 010
+        +48&nbsp;602&nbsp;464&nbsp;010
       </a>
-      <p class="contact-sub">Odbieramy w godzinach 8:00-18:00 · Kołobrzeg, ul. Łopuskiego 27</p>
+      <p class="contact-sub">Odbieramy w godzinach 8:00-18:00. Kołobrzeg, ul. Łopuskiego 27.</p>
     </div>
   </div>
 </section>
@@ -1383,7 +454,7 @@
 </main>
 
 <!-- ================================================================
-     STOPKA
+     STOPKA -pełna nawigacja witryny (dostępna też na końcu strony)
      ================================================================ -->
 <footer class="on-dark">
   <div class="container">
@@ -1391,20 +462,30 @@
       <div class="footer-brand">
         <span class="brand-mark" aria-hidden="true">P</span>
         <span>Parking Pasaż Parsęta
-        <span class="small">Kołobrzeg · Łopuskiego 27</span></span>
+        <span class="small">Kołobrzeg, Łopuskiego 27</span></span>
       </div>
+      <nav class="footer-col" aria-label="Strony witryny">
+        <h3>Strony</h3>
+        <a href="index.html" aria-current="page">Strona główna</a>
+        <a href="cennik.html">Cennik</a>
+        <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+        <a href="dla-firm.html">Dla firm</a>
+        <a href="dojazd.html">Dojazd</a>
+        <a href="faq.html">Pytania i odpowiedzi</a>
+      </nav>
       <div class="footer-col">
         <h3>Kontakt</h3>
-        <a href="tel:+48602464010">+48 602 464 010</a>
+        <a href="tel:+48602464010">+48&nbsp;602&nbsp;464&nbsp;010</a>
+        <p>Telefon 8:00-18:00<br>Obiekt dostępny 24/7</p>
       </div>
       <div class="footer-col">
         <h3>Adres</h3>
-        <p>ul. Łopuskiego 27<br>78-100 Kołobrzeg</p>
+        <p>ul. ppor. Edmunda Łopuskiego 27<br>78-100 Kołobrzeg</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Parking Pasaż Parsęta</span>
-      <span><a href="polityka-prywatnosci.html">Polityka prywatności</a> · Kołobrzeg · Wynajem miejsc parkingowych</span>
+      <span>© 2026 Parking Pasaż Parsęta. Operator: Supermat Adam Gzyl, NIP 6711308209.</span>
+      <span><a href="polityka-prywatnosci.html">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
     </div>
   </div>
 </footer>
@@ -1415,195 +496,9 @@
 <div class="callbar" id="callbar">
   <a href="tel:+48602464010">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
-    Zadzwoń teraz · +48 602 464 010
+    <span class="callbar-label">Zadzwoń teraz</span>
+    <span class="callbar-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
   </a>
 </div>
-
-<!-- ================================================================
-     JAVASCRIPT -wyłącznie progressive enhancement.
-     Strona jest w pełni funkcjonalna bez skryptów.
-     ================================================================ -->
-<script>
-(function() {
-  'use strict';
-  var ruchOgraniczony = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Strzałki galerii (bez JS pas przewija się natywnie)
-  try {
-    document.documentElement.classList.add('js');
-
-    // Kotwice sekcji: płynne przewinięcie do sekcji z czystym adresem (bez #hash),
-    // ale z zachowaniem przycisku „Wstecz". Klik dokłada wpis do historii z tym samym,
-    // czystym URL-em, a „Wstecz" przywraca poprzednią pozycję przewinięcia (zamiast
-    // wyrzucać ze strony). Zachowuje offset pod listwę (scroll-margin-top) i focus.
-    // Bez JS linki działają natywnie (z #hash).
-    var obslugaHistorii = !!(window.history && history.pushState);
-    if (obslugaHistorii) {
-      window.addEventListener('popstate', function(ev) {
-        if (ev.state && typeof ev.state.kotwicaY === 'number') {
-          window.scrollTo({ top: ev.state.kotwicaY, behavior: 'auto' });
-        }
-      });
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var id = link.getAttribute('href').slice(1);
-        if (!id) return;                       // sam "#" -zostaw zachowanie domyślne
-        var cel = document.getElementById(id);
-        if (!cel) return;                      // brak takiej sekcji -zostaw domyślne
-        e.preventDefault();
-        // Wpis w historii z czystym URL-em: „Wstecz" wróci tam, gdzie użytkownik był.
-        if (obslugaHistorii) {
-          var czysty = location.pathname + location.search;
-          history.replaceState({ kotwicaY: window.scrollY }, '', czysty);
-          history.pushState({ kotwicaY: window.scrollY }, '', czysty);
-        }
-        cel.scrollIntoView({ behavior: ruchOgraniczony ? 'auto' : 'smooth', block: 'start' });
-        // Focus dla klawiatury i czytników ekranu, ale bez ponownego przewijania.
-        if (!cel.hasAttribute('tabindex')) cel.setAttribute('tabindex', '-1');
-        cel.focus({ preventScroll: true });
-      });
-    });
-
-    // Przełącznik motywu jasny/ciemny. Bez świadomego wyboru motyw idzie za systemem.
-    var przelacznik = document.querySelector('[data-theme-toggle]');
-    if (przelacznik) {
-      var kontrastCiemny = window.matchMedia('(prefers-color-scheme: dark)');
-      var motywEfektywny = function() {
-        return document.documentElement.getAttribute('data-theme') || (kontrastCiemny.matches ? 'dark' : 'light');
-      };
-      // Pasek przeglądarki (theme-color) podąża za motywem efektywnym -bez tego ręczne
-      // przełączenie zostawiłoby np. jasny pasek adresu nad ciemną stroną.
-      var metaKolory = document.querySelectorAll('meta[name="theme-color"]');
-      var ustawKolorPaska = function(m) {
-        var kolor = m === 'dark' ? '#191c20' : '#f5f7f4';
-        metaKolory.forEach(function(meta) { meta.setAttribute('content', kolor); });
-      };
-      var opiszPrzycisk = function(m) {
-        przelacznik.setAttribute('aria-pressed', m === 'dark' ? 'true' : 'false');
-        przelacznik.setAttribute('aria-label', m === 'dark' ? 'Włącz tryb jasny' : 'Włącz tryb ciemny');
-        ustawKolorPaska(m);
-      };
-      opiszPrzycisk(motywEfektywny());
-      przelacznik.addEventListener('click', function() {
-        var nowy = motywEfektywny() === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', nowy);
-        try { localStorage.setItem('motyw', nowy); } catch (e) {}
-        opiszPrzycisk(nowy);
-      });
-      // Dopóki nie ma świadomego wyboru, etykieta śledzi zmianę motywu systemowego.
-      // Guard: starsze Safari (<14) nie ma addEventListener na MediaQueryList -bez tego
-      // rzuciłoby wyjątek i przerwało resztę progressive enhancement w tym bloku try.
-      if (kontrastCiemny.addEventListener) {
-        kontrastCiemny.addEventListener('change', function() {
-          if (!document.documentElement.getAttribute('data-theme')) opiszPrzycisk(motywEfektywny());
-        });
-      }
-    }
-
-    var strip = document.querySelector('.strip');
-    var prev = document.querySelector('[data-strip-prev]');
-    var next = document.querySelector('[data-strip-next]');
-    if (strip && prev && next) {
-      var krok = function() { return Math.min(strip.clientWidth * 0.8, 640); };
-      prev.addEventListener('click', function() {
-        strip.scrollBy({ left: -krok(), behavior: ruchOgraniczony ? 'auto' : 'smooth' });
-      });
-      next.addEventListener('click', function() {
-        strip.scrollBy({ left: krok(), behavior: ruchOgraniczony ? 'auto' : 'smooth' });
-      });
-      // Strzałki gasną na krańcach pasa -widać, że dalej nie ma już zdjęć
-      var aktualizujStrzalki = function() {
-        var maks = strip.scrollWidth - strip.clientWidth - 1;
-        prev.disabled = strip.scrollLeft <= 0;
-        next.disabled = strip.scrollLeft >= maks;
-      };
-      aktualizujStrzalki();
-      strip.addEventListener('scroll', aktualizujStrzalki, { passive: true });
-      window.addEventListener('resize', aktualizujStrzalki);
-    }
-
-    // Zgoda na mapę Google: przy pierwszej wizycie baner cookie, wybór trafia do localStorage.
-    // „Akceptuję" (w banerze albo przycisk przy mapie) wstawia iframe; przy kolejnych wizytach
-    // mapa ładuje się od razu. Przed zgodą strona nie wysyła do Google żadnych zapytań.
-    var mapaBtn = document.querySelector('[data-map-load]');
-    var mapaWrap = document.querySelector('[data-map-wrap]');
-    var baner = document.getElementById('cookie-baner');
-    var zapiszZgode = function(w) { try { localStorage.setItem('zgoda-mapa', w); } catch (e) {} };
-    var schowajBaner = function() { if (baner) baner.hidden = true; };
-    var wczytajMape = function() {
-      // Guard: kolejne wywołania (np. szybkie podwójne kliknięcie) nie tworzą drugiej ramki
-      if (!mapaBtn || !mapaWrap || mapaWrap.querySelector('iframe')) return;
-      var ramka = document.createElement('iframe');
-      ramka.title = 'Mapa: Parking Pasaż Parsęta, ul. Łopuskiego 27, Kołobrzeg';
-      ramka.src = mapaBtn.getAttribute('data-map-src');
-      ramka.loading = 'lazy';
-      ramka.referrerPolicy = 'no-referrer-when-downgrade';
-      ramka.allowFullscreen = true;
-      // Podgląd znika dopiero, gdy mapa naprawdę się załaduje -bez sieci zostaje
-      // statyczny podgląd z pinezką, a nie pusta ramka.
-      ramka.addEventListener('load', function() {
-        mapaWrap.classList.add('mapa-zaladowana');
-        var podglad = mapaWrap.querySelector('.map-placeholder');
-        if (podglad) setTimeout(function() { podglad.remove(); }, 350);
-      });
-      mapaWrap.appendChild(ramka);
-    };
-    var zgoda = null;
-    try { zgoda = localStorage.getItem('zgoda-mapa'); } catch (e) {}
-    if (zgoda === 'tak') {
-      wczytajMape();
-    } else if (zgoda !== 'nie' && baner && mapaWrap) {
-      baner.hidden = false;
-    }
-    if (baner) {
-      var akceptuj = baner.querySelector('[data-cookie-akceptuj]');
-      var odrzuc = baner.querySelector('[data-cookie-odrzuc]');
-      if (akceptuj) akceptuj.addEventListener('click', function() { zapiszZgode('tak'); schowajBaner(); wczytajMape(); });
-      if (odrzuc) odrzuc.addEventListener('click', function() { zapiszZgode('nie'); schowajBaner(); });
-    }
-    if (mapaBtn) {
-      mapaBtn.addEventListener('click', function() { zapiszZgode('tak'); schowajBaner(); wczytajMape(); });
-    }
-
-    // Delikatne odsłanianie sekcji przy przewijaniu
-    var elementy = document.querySelectorAll('.reveal');
-    if (ruchOgraniczony || !('IntersectionObserver' in window)) {
-      elementy.forEach(function(el) { el.classList.add('in'); });
-    } else {
-      var io = new IntersectionObserver(function(wpisy) {
-        wpisy.forEach(function(w) {
-          if (w.isIntersecting) { w.target.classList.add('in'); io.unobserve(w.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      elementy.forEach(function(el) { io.observe(el); });
-    }
-
-    // Mobilny pasek połączenia: pojawia się dopiero po minięciu hero (tam jest już
-    // przycisk „Zadzwoń teraz") i chowa się, gdy widać sekcję kontaktu z numerem.
-    // Bez JS pasek jest po prostu zawsze widoczny.
-    var callbar = document.getElementById('callbar');
-    var hero = document.querySelector('.hero');
-    var kontakt = document.getElementById('kontakt');
-    if (callbar && hero && kontakt && 'IntersectionObserver' in window) {
-      var przedHero = true, wKontakcie = false;
-      var aktualizujPasek = function() {
-        callbar.classList.toggle('schowany', przedHero || wKontakcie);
-      };
-      callbar.classList.add('schowany');
-      new IntersectionObserver(function(wpisy) {
-        wpisy.forEach(function(w) { przedHero = w.isIntersecting; });
-        aktualizujPasek();
-      }, { threshold: 0.1 }).observe(hero);
-      new IntersectionObserver(function(wpisy) {
-        wpisy.forEach(function(w) { wKontakcie = w.isIntersecting; });
-        aktualizujPasek();
-      }, { threshold: 0.25 }).observe(kontakt);
-    }
-  } catch (e) {
-    document.documentElement.classList.remove('js');
-  }
-})();
-</script>
 
 </body></html>
