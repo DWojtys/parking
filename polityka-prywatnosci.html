@@ -18,426 +18,91 @@
 <!-- Czcionka Archivo hostowana lokalnie (bez zapytań do Google -szybszy render, czystsze RODO) -->
 <link rel="preload" as="font" type="font/woff2" href="fonts/archivo-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/archivo-latin-ext.woff2" crossorigin>
-
-<style>
-  @font-face {
-    font-family: 'Archivo';
-    font-style: normal;
-    font-weight: 100 900;
-    font-stretch: 62% 125%;
-    font-display: swap;
-    src: url(fonts/archivo-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Archivo';
-    font-style: normal;
-    font-weight: 100 900;
-    font-stretch: 62% 125%;
-    font-display: swap;
-    src: url(fonts/archivo-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /* ================================================================
-     „DZIENNA ZMIANA" -ten sam system, co strona główna (index.html):
-     beton, asfaltowa czerń, zieleń malowanych bram garażowych,
-     jeden ślad żółtej farby znakującej. Dokument prawny w tym samym języku.
-     ================================================================ */
-  :root {
-    --bg:          oklch(0.97 0.005 160);
-    --surface:     oklch(0.995 0.002 160);
-    --ink:         oklch(0.22 0.012 170);
-    --ink-2:       oklch(0.38 0.018 168);
-    --ink-3:       oklch(0.455 0.02 168);
-    --line:        oklch(0.885 0.012 165);
-    --line-2:      oklch(0.79 0.015 165);
-
-    --brand:       oklch(0.46 0.115 158);
-    --brand-deep:  oklch(0.385 0.095 160);
-    --brand-dark:  oklch(0.29 0.05 162);
-    --brand-tint:  oklch(0.945 0.028 158);
-    --on-brand:    oklch(0.985 0.004 160);
-    --on-brand-2:  oklch(0.955 0.022 156);
-
-    --board:       oklch(0.25 0.014 172);
-    --board-line:  oklch(1 0 0 / 0.13);
-    --on-board-2:  oklch(0.79 0.015 165);
-
-    --paint:       oklch(0.87 0.145 95);
-    --paint-ink:   oklch(0.31 0.065 90);
-
-    /* powierzchnie i akcenty przełączane między motywami (patrz „NOCNA ZMIANA") */
-    --topbar-bg:        oklch(0.995 0.002 160 / 0.92);
-    --brand-wash:       oklch(0.46 0.115 158 / 0.08);
-    --inline-underline: oklch(0.46 0.115 158 / 0.4);
-    --on-footer:        oklch(0.985 0.004 160);
-    --on-footer-2:      oklch(0.93 0.035 156);
-    --footer-mark-bg:   oklch(0.995 0.002 160);
-    --footer-mark-ink:  oklch(0.29 0.05 162);
-
-    --sans: 'Archivo', system-ui, sans-serif;
-    --r-sm: 8px;
-    --r-md: 12px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  html, body {
-    background: var(--bg); color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; overflow-x: clip;
-  }
-  body { font-size: 16.5px; line-height: 1.55; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  a { color: inherit; text-decoration: none; }
-  strong { font-weight: 700; }
-  ::selection { background: var(--brand); color: var(--on-brand); }
-  :where(a, button, [tabindex]):focus-visible {
-    outline: 3px solid var(--brand); outline-offset: 2px; border-radius: var(--r-sm);
-  }
-  main:focus, main:focus-visible { outline: none; }
-
-  /* Poziomy padding respektuje wcięcia bezpieczne (notch) w orientacji poziomej -env()=0 na zwykłych urządzeniach */
-  .container { max-width: 880px; margin: 0 auto; padding: 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-right)) 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-left)); position: relative; }
-
-  h1, h2, h3 { text-wrap: balance; }
-  p { text-wrap: pretty; }
-
-  .skip-link {
-    position: absolute; left: 16px; top: -60px; z-index: 100;
-    background: var(--ink); color: var(--surface);
-    padding: 12px 18px; border-radius: var(--r-sm); font-weight: 600;
-    transition: top .2s ease;
-  }
-  .skip-link:focus-visible { top: 12px; }
-
-  /* ============ GÓRNA LISTWA (identyczna sygnatura co index.html) ============ */
-  .topbar {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--topbar-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 4px solid var(--brand);
-    border-bottom: 1px solid var(--line);
-  }
-  .topbar-inner {
-    max-width: 1180px; margin: 0 auto;
-    padding: 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-right)) 0 max(clamp(20px, 4vw, 36px), env(safe-area-inset-left));
-    display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 66px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-stretch: 115%; font-size: 15px; letter-spacing: 0.01em; text-transform: uppercase; }
-  .brand-mark {
-    width: 34px; height: 34px; flex-shrink: 0;
-    background: var(--brand); color: var(--on-brand);
-    display: grid; place-items: center;
-    font-size: 20px; font-weight: 800; font-stretch: 125%;
-    border-radius: var(--r-sm);
-  }
-  .topbar-right { display: flex; align-items: center; gap: 6px; }
-  .topbar-back {
-    font-size: 14.5px; font-weight: 700; color: var(--ink-2);
-    padding: 10px 14px; border-radius: var(--r-sm);
-    transition: color .15s ease, background .15s ease;
-  }
-  @media (hover: hover) {
-    .topbar-back:hover { color: var(--brand); background: var(--brand-wash); }
-  }
-  .topbar-tel {
-    display: inline-flex; align-items: center; gap: 9px; min-height: 44px;
-    font-weight: 800; font-stretch: 110%; font-size: 15.5px;
-    color: var(--brand); padding: 10px 14px; border-radius: var(--r-sm);
-    font-variant-numeric: tabular-nums;
-    transition: color .15s ease, background .15s ease;
-  }
-  @media (hover: hover) {
-    .topbar-tel:hover { color: var(--brand-deep); background: var(--brand-wash); }
-  }
-  .topbar-tel svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
-  /* Ukryty bez JS -przełącznik nic by nie robił i miałby błędną etykietę;
-     motyw automatyczny (prefers-color-scheme) działa niezależnie od tego przycisku. */
-  .theme-toggle {
-    display: none; place-items: center;
-    width: 44px; height: 44px; flex-shrink: 0;
-    background: transparent; color: var(--ink-2);
-    border: 1.5px solid var(--line-2); border-radius: var(--r-sm);
-    cursor: pointer;
-    transition: color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;
-  }
-  html.js .theme-toggle { display: inline-grid; }
-  @media (hover: hover) {
-    .theme-toggle:hover { color: var(--brand); border-color: var(--brand); background: var(--brand-wash); }
-  }
-  .theme-toggle:active { transform: scale(0.94); }
-  .theme-toggle svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; }
-  .theme-toggle .icon-sun { display: none; }
-  .theme-toggle .icon-moon { display: block; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .theme-toggle .icon-sun { display: block; }
-    :root:not([data-theme]) .theme-toggle .icon-moon { display: none; }
-  }
-  :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-  :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-  @media (max-width: 620px) {
-    .brand span:last-child { font-size: 11px; max-width: 130px; line-height: 1.2; }
-    .topbar-back { display: none; }
-    .topbar-tel { font-size: 14px; padding: 12px 8px; }
-  }
-  @media (max-width: 480px) {
-    /* Telefon w listwie chowamy -połączenie zapewnia dolny pasek (callbar).
-       Zostaje sam przełącznik, więc listwa nie przewija się w poziomie na wąskich telefonach. */
-    .topbar-tel { display: none; }
-  }
-
-  /* ============ NAGŁÓWEK DOKUMENTU ============ */
-  /* Skip-link celuje w #tresc -margines chroni pierwszy nagłówek przed zasłonięciem przez listwę */
-  #tresc { scroll-margin-top: 84px; }
-  .doc-hero { padding: clamp(48px, 8vh, 88px) 0 clamp(28px, 4vh, 40px); }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 13px; font-weight: 800; font-stretch: 118%;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand);
-    margin-bottom: 22px;
-  }
-  .eyebrow::before { content: ""; width: 22px; height: 4px; border-radius: 2px; background: var(--brand); }
-  .doc-title {
-    font-size: clamp(38px, 6vw, 68px);
-    font-weight: 800; font-stretch: 122%;
-    line-height: 1.02; letter-spacing: -0.02em;
-    margin-bottom: 22px;
-  }
-  .doc-lead { font-size: clamp(17px, 2vw, 19.5px); line-height: 1.6; color: var(--ink-2); max-width: 42em; }
-  .doc-updated {
-    margin-top: 24px; display: inline-flex; align-items: center; gap: 9px;
-    font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em;
-    color: var(--ink-3); font-variant-numeric: tabular-nums;
-  }
-  .doc-updated::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--brand); }
-
-  /* ============ TREŚĆ ============ */
-  .doc-body { padding: 8px 0 clamp(72px, 10vw, 104px); }
-  .doc-body h2 {
-    font-size: clamp(25px, 3.4vw, 34px);
-    font-weight: 800; font-stretch: 118%; line-height: 1.1;
-    letter-spacing: -0.015em;
-    margin: 48px 0 16px; padding-top: 30px;
-    border-top: 1px solid var(--line);
-    display: flex; align-items: baseline; gap: 14px;
-  }
-  .doc-body h2 .n {
-    font-size: 15px; font-weight: 800; font-stretch: 125%;
-    color: var(--brand); font-variant-numeric: tabular-nums;
-    letter-spacing: 0; flex-shrink: 0;
-  }
-  .doc-body h2 em { font-style: normal; color: var(--brand); }
-  .doc-body h3 {
-    font-size: 18.5px; font-weight: 800; font-stretch: 112%;
-    color: var(--ink); margin: 26px 0 10px;
-  }
-  .doc-body p {
-    font-size: 16.5px; line-height: 1.7; color: var(--ink-2);
-    margin-bottom: 14px; max-width: 68ch;
-  }
-  .doc-body ul { list-style: none; margin: 10px 0 18px; max-width: 68ch; }
-  .doc-body ul li {
-    position: relative; padding-left: 26px; margin-bottom: 11px;
-    font-size: 16.5px; line-height: 1.65; color: var(--ink-2);
-  }
-  .doc-body ul li::before {
-    content: ""; position: absolute; left: 0; top: 11px;
-    width: 13px; height: 3px; border-radius: 2px; background: var(--brand);
-  }
-  .doc-body strong { color: var(--ink); font-weight: 700; }
-  .doc-body a.inline { color: var(--brand); font-weight: 600; border-bottom: 1.5px solid var(--inline-underline); }
-  @media (hover: hover) {
-    .doc-body a.inline:hover { border-bottom-color: var(--brand); }
-  }
-
-  /* Ramka informacyjna -zielony akcent u góry, pełne obramowanie (bez pasków bocznych) */
-  .callout {
-    background: var(--surface); border: 1px solid var(--line);
-    border-top: 3px solid var(--brand);
-    border-radius: var(--r-md); padding: 22px 26px; margin: 26px 0;
-  }
-  .callout p:last-child { margin-bottom: 0; }
-  .callout-label {
-    font-size: 12px; font-weight: 800; font-stretch: 118%;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand);
-    margin-bottom: 12px;
-  }
-
-  /* Tabela danych -w duchu tablic cennika: ciemny nagłówek, wiersze na fugach */
-  .doc-table-wrap { overflow-x: auto; margin: 18px 0 24px; border: 1px solid var(--line-2); border-radius: var(--r-md); }
-  table { width: 100%; border-collapse: collapse; font-size: 15.5px; min-width: 580px; }
-  thead th {
-    text-align: left; background: var(--bg);
-    font-size: 11.5px; font-weight: 800; font-stretch: 115%;
-    letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand);
-    padding: 15px 18px; border-bottom: 1px solid var(--line-2);
-  }
-  tbody td { padding: 15px 18px; color: var(--ink-2); line-height: 1.55; border-bottom: 1px solid var(--line); vertical-align: top; }
-  tbody tr:last-child td { border-bottom: 0; }
-  tbody td:first-child { color: var(--ink); font-weight: 700; }
-
-  /* ============ STOPKA (identyczna co index.html) ============ */
-  footer { background: var(--brand-dark); color: var(--on-footer); padding: 56px 0 32px; }
-  .footer-grid { max-width: 1180px; margin: 0 auto clamp(30px, 4vw, 44px); padding: 0 clamp(20px, 4vw, 36px); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px; }
-  .footer-brand { display: flex; align-items: flex-start; gap: 13px; font-size: 22px; font-weight: 800; font-stretch: 115%; line-height: 1.15; }
-  .footer-brand .brand-mark { background: var(--footer-mark-bg); color: var(--footer-mark-ink); }
-  .footer-brand .small { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-footer-2); margin-top: 7px; }
-  .footer-col h3 { font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-footer-2); margin-bottom: 14px; }
-  .footer-col p, .footer-col a { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.7; color: var(--on-footer); }
-  .footer-col a { transition: opacity .15s ease; }
-  @media (hover: hover) {
-    .footer-col a:hover { opacity: 0.75; }
-  }
-  .footer-bottom {
-    max-width: 1180px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 36px) 0;
-    border-top: 1px solid oklch(1 0 0 / 0.2);
-    display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
-    font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-footer-2);
-  }
-  .footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
-  @media (hover: hover) {
-    .footer-bottom a:hover { color: var(--on-footer); }
-  }
-  @media (max-width: 760px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { flex-direction: column; }
-  }
-
-  /* ============ MOBILNY PASEK POŁĄCZENIA (zawsze pod kciukiem, bez JS) ============ */
-  .callbar { display: none; }
-  @media (max-width: 860px) {
-    .callbar {
-      display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-      padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
-      background: var(--topbar-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--line);
-    }
-    .callbar a {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 54px; border-radius: var(--r-sm);
-      background: var(--brand); color: var(--on-brand);
-      font-size: 14.5px; font-weight: 800; font-stretch: 112%;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      box-shadow: 0 6px 18px oklch(0.46 0.115 158 / 0.3);
-      transition: transform .15s ease, background .15s ease;
-    }
-    .callbar a:active { background: var(--brand-deep); transform: scale(0.97); }
-    .callbar svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; }
-    /* Rezerwa na pasek wewnątrz ciemnej stopki, nie na <body> -inaczej pod stopką
-       prześwitywałby jasny pas tła strony. */
-    footer { padding-bottom: calc(32px + 78px + env(safe-area-inset-bottom, 0px)); }
-  }
-
-  /* ================================================================
-     „NOCNA ZMIANA" -tryb ciemny (spójny z index.html).
-     Cały motyw to wyłącznie zmienne :root. Bez JS sterują preferencje
-     systemu (blok @media), chyba że użytkownik dokonał wyboru (data-theme);
-     przełącznik zapisuje wybór i wygrywa. Oba zestawy MUSZĄ być identyczne.
-     ================================================================ */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-      --bg:               oklch(0.205 0.012 232);
-      --surface:          oklch(0.245 0.013 232);
-      --ink:              oklch(0.955 0.006 230);
-      --ink-2:            oklch(0.805 0.013 230);
-      --ink-3:            oklch(0.70 0.016 230);
-      --line:             oklch(0.335 0.014 232);
-      --line-2:           oklch(0.44 0.018 232);
-      --brand:            oklch(0.60 0.132 156);
-      --brand-deep:       oklch(0.68 0.138 156);
-      --brand-dark:       oklch(0.20 0.026 160);
-      --on-brand:         oklch(0.15 0.024 160);
-      --topbar-bg:        oklch(0.205 0.012 232 / 0.85);
-      --brand-wash:       oklch(0.60 0.132 156 / 0.16);
-      --inline-underline: oklch(0.60 0.132 156 / 0.5);
-      --on-footer:        oklch(0.955 0.006 230);
-      --on-footer-2:      oklch(0.72 0.015 230);
-      --footer-mark-bg:   oklch(0.60 0.132 156);
-      --footer-mark-ink:  oklch(0.15 0.024 160);
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg:               oklch(0.205 0.012 232);
-    --surface:          oklch(0.245 0.013 232);
-    --ink:              oklch(0.955 0.006 230);
-    --ink-2:            oklch(0.805 0.013 230);
-    --ink-3:            oklch(0.70 0.016 230);
-    --line:             oklch(0.335 0.014 232);
-    --line-2:           oklch(0.44 0.018 232);
-    --brand:            oklch(0.60 0.132 156);
-    --brand-deep:       oklch(0.68 0.138 156);
-    --brand-dark:       oklch(0.20 0.026 160);
-    --on-brand:         oklch(0.15 0.024 160);
-    --topbar-bg:        oklch(0.205 0.012 232 / 0.85);
-    --brand-wash:       oklch(0.60 0.132 156 / 0.16);
-    --inline-underline: oklch(0.60 0.132 156 / 0.5);
-    --on-footer:        oklch(0.955 0.006 230);
-    --on-footer-2:      oklch(0.72 0.015 230);
-    --footer-mark-bg:   oklch(0.60 0.132 156);
-    --footer-mark-ink:  oklch(0.15 0.024 160);
-  }
-
-  /* ============ TRYB WYSOKIEGO KONTRASTU (Windows) ============ */
-  @media (forced-colors: active) {
-    .callbar a, .topbar-back, .topbar-tel { border: 1.5px solid ButtonText; }
-  }
-
-  /* ============ DRUK ============ */
-  @media print {
-    .topbar, .callbar, .skip-link { display: none !important; }
-    .doc-body h2 { break-after: avoid; }
-    .doc-table-wrap, .callout { break-inside: avoid; }
-  }
-
-  /* ============ OGRANICZENIE RUCHU ============ */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 <script>
-  /* Motyw: świadomy wybór (jeśli istnieje) ustawiamy przed pierwszym malowaniem, by uniknąć mignięcia.
-     Brak wyboru -o motywie decyduje preferencja systemu (blok @media w stylach). */
-  (function(){try{var t=localStorage.getItem('motyw');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  (function(){var h=document.documentElement;try{var t=localStorage.getItem('motyw');if(t==='dark'||t==='light')h.setAttribute('data-theme',t);}catch(e){}h.classList.add('js');setTimeout(function(){if(!window.__pkGotowe)h.classList.remove('js');},2500);})();
 </script>
+<script src="app.js" defer></script>
 </head>
 <body>
 
 <a class="skip-link" href="#tresc">Przejdź do treści</a>
 
-<!-- ================================================================
-     GÓRNA LISTWA
-     ================================================================ -->
 <header class="topbar">
-  <div class="topbar-inner">
+  <div class="container topbar-inner">
     <a href="index.html" class="brand">
       <span class="brand-mark" aria-hidden="true">P</span>
-      <span>Parking Pasaż Parsęta</span>
+      <span class="brand-name">Parking Pasaż Parsęta</span>
     </a>
-    <div class="topbar-right">
-      <a href="index.html" class="topbar-back">← Powrót na stronę</a>
+    <nav class="mainnav" aria-label="Nawigacja główna">
+      <a href="cennik.html">Cennik</a>
+      <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+      <a href="dla-firm.html">Dla firm</a>
+      <a href="dojazd.html">Dojazd</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="topbar-actions">
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2v2.4M12 19.6V22M4.22 4.22l1.7 1.7M18.08 18.08l1.7 1.7M2 12h2.4M19.6 12H22M4.22 19.78l1.7-1.7M18.08 5.92l1.7-1.7"></path></svg>
       </button>
       <a href="tel:+48602464010" class="topbar-tel" aria-label="Zadzwoń: +48 602 464 010">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
-        +48 602 464 010
+        <span class="tel-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
       </a>
+      <button type="button" class="navtoggle" popovertarget="menu-witryny" aria-label="Menu witryny" title="Menu witryny">
+        <svg class="icon-burger" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
     </div>
   </div>
 </header>
 
 <!-- ================================================================
+     ARKUSZ MENU (≤900px)
+
+     Natywny popover: warstwa górna, Esc, zamknięcie kliknięciem obok
+     i powrót fokusu na przycisk pochodzą od przeglądarki, nie od JS.
+     Bez wsparcia popovera reguła @supports w styles.css chowa ten blok,
+     a nawigację przejmują chipy w listwie.
+     ================================================================ -->
+<div class="navsheet" id="menu-witryny" popover>
+  <nav class="navsheet-nav" aria-label="Nawigacja witryny">
+    <a href="index.html">Strona główna</a>
+    <a href="cennik.html">Cennik</a>
+    <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+    <a href="dla-firm.html">Dla firm</a>
+    <a href="dojazd.html">Dojazd</a>
+    <a href="faq.html">Pytania i odpowiedzi</a>
+  </nav>
+  <div class="navsheet-foot">
+    <a class="navsheet-tel" href="tel:+48602464010" aria-label="Zadzwoń: +48 602 464 010">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
+      +48&nbsp;602&nbsp;464&nbsp;010
+    </a>
+    <p class="navsheet-godziny">Telefon 8:00-18:00. Obiekt dostępny 24/7.</p>
+    <div class="navsheet-theme">
+      <span>Motyw</span>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2v2.4M12 19.6V22M4.22 4.22l1.7 1.7M18.08 18.08l1.7 1.7M2 12h2.4M19.6 12H22M4.22 19.78l1.7-1.7M18.08 5.92l1.7-1.7"></path></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- /navsheet -->
+
+<!-- ================================================================
      NAGŁÓWEK DOKUMENTU
      ================================================================ -->
 <header class="doc-hero">
-  <div class="container">
+  <div class="container container--doc">
+    <nav class="breadcrumbs" aria-label="Ścieżka nawigacyjna">
+      <ol>
+        <li><a href="index.html">Strona główna</a></li>
+        <li aria-current="page">Polityka prywatności</li>
+      </ol>
+    </nav>
     <div class="eyebrow">Dokumenty</div>
     <h1 class="doc-title">Polityka prywatności</h1>
     <p class="doc-lead">
@@ -449,10 +114,10 @@
 </header>
 
 <!-- ================================================================
-     TREŚĆ
+     TREŚĆ -tekst prawny pozostaje bez zmian
      ================================================================ -->
 <main id="tresc" class="doc-body" tabindex="-1">
-  <div class="container">
+  <div class="container container--doc">
 
     <h2><span class="n">01</span> Administrator danych</h2>
     <p>Administratorem Twoich danych osobowych jest:</p>
@@ -461,7 +126,7 @@
       <li><strong>Adres:</strong> ul. ppor. Edmunda Łopuskiego 23 lok. 111, 78-100 Kołobrzeg</li>
       <li><strong>NIP:</strong> 6711308209</li>
       <li><strong>E-mail:</strong> adgzyl@gmail.com</li>
-      <li><strong>Telefon:</strong> +48 602 464 010</li>
+      <li><strong>Telefon:</strong> +48&nbsp;602&nbsp;464&nbsp;010</li>
     </ul>
     <p>We wszystkich sprawach dotyczących przetwarzania danych osobowych możesz kontaktować się z nami
     pod powyższym adresem e-mail lub numerem telefonu.</p>
@@ -528,7 +193,7 @@
     <h3>Mapy Google (Google Maps)</h3>
     <p>Na stronie możesz wyświetlić interaktywną mapę dostarczaną przez Google. Mapa <strong>nie ładuje się
     automatycznie</strong> — wczytujemy ją dopiero po Twojej zgodzie, wyrażonej w banerze cookie
-    lub przyciskiem „Pokaż mapę Google" przy mapie. Twój wybór zapamiętujemy w pamięci lokalnej
+    lub przyciskiem „Pokaż mapę Google” przy mapie. Twój wybór zapamiętujemy w pamięci lokalnej
     przeglądarki (localStorage), więc nie pytamy o niego przy każdej wizycie; możesz go cofnąć,
     usuwając dane tej witryny w ustawieniach przeglądarki. Dopóki zgody nie wyrazisz, w miejscu mapy
     wyświetlany jest statyczny obraz zapisany na naszym serwerze (dane mapowe © OpenStreetMap) —
@@ -578,80 +243,46 @@
   </div>
 </main>
 
-<!-- ================================================================
-     STOPKA
-     ================================================================ -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <span class="brand-mark" aria-hidden="true">P</span>
-      <span>Parking Pasaż Parsęta
-      <span class="small">Kołobrzeg · Łopuskiego 27</span></span>
+<footer class="on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>Parking Pasaż Parsęta
+        <span class="small">Kołobrzeg, Łopuskiego 27</span></span>
+      </div>
+      <nav class="footer-col" aria-label="Strony witryny">
+        <h3>Strony</h3>
+        <a href="index.html">Strona główna</a>
+        <a href="cennik.html">Cennik</a>
+        <a href="miejsca-zamykane.html">Miejsca zamykane</a>
+        <a href="dla-firm.html">Dla firm</a>
+        <a href="dojazd.html">Dojazd</a>
+        <a href="faq.html">Pytania i odpowiedzi</a>
+      </nav>
+      <div class="footer-col">
+        <h3>Kontakt</h3>
+        <a href="tel:+48602464010">+48&nbsp;602&nbsp;464&nbsp;010</a>
+        <p>Telefon 8:00-18:00<br>Obiekt dostępny 24/7</p>
+      </div>
+      <div class="footer-col">
+        <h3>Adres</h3>
+        <p>ul. ppor. Edmunda Łopuskiego 27<br>78-100 Kołobrzeg</p>
+      </div>
     </div>
-    <div class="footer-col">
-      <h3>Kontakt</h3>
-      <a href="tel:+48602464010">+48 602 464 010</a>
+    <div class="footer-bottom">
+      <span>© 2026 Parking Pasaż Parsęta. Operator: Supermat Adam Gzyl, NIP 6711308209.</span>
+      <span><a href="polityka-prywatnosci.html" aria-current="page">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
     </div>
-    <div class="footer-col">
-      <h3>Adres</h3>
-      <p>ul. Łopuskiego 27<br>78-100 Kołobrzeg</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Parking Pasaż Parsęta</span>
-    <span><a href="index.html">Strona główna</a> · Kołobrzeg · Wynajem miejsc parkingowych</span>
   </div>
 </footer>
 
-<!-- ================================================================
-     MOBILNY PASEK POŁĄCZENIA
-     ================================================================ -->
-<div class="callbar">
+<div class="callbar" id="callbar">
   <a href="tel:+48602464010">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
-    Zadzwoń teraz · +48 602 464 010
+    <span class="callbar-label">Zadzwoń teraz</span>
+    <span class="callbar-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
   </a>
 </div>
-
-<!-- ================================================================
-     JAVASCRIPT -wyłącznie przełącznik motywu (strona działa bez skryptów).
-     ================================================================ -->
-<script>
-(function() {
-  'use strict';
-  document.documentElement.classList.add('js');
-  var przelacznik = document.querySelector('[data-theme-toggle]');
-  if (!przelacznik) return;
-  var kontrastCiemny = window.matchMedia('(prefers-color-scheme: dark)');
-  var motywEfektywny = function() {
-    return document.documentElement.getAttribute('data-theme') || (kontrastCiemny.matches ? 'dark' : 'light');
-  };
-  // Pasek przeglądarki (theme-color) podąża za motywem efektywnym -bez tego ręczne
-  // przełączenie zostawiłoby np. jasny pasek adresu nad ciemną stroną.
-  var metaKolory = document.querySelectorAll('meta[name="theme-color"]');
-  var ustawKolorPaska = function(m) {
-    var kolor = m === 'dark' ? '#191c20' : '#f5f7f4';
-    metaKolory.forEach(function(meta) { meta.setAttribute('content', kolor); });
-  };
-  var opiszPrzycisk = function(m) {
-    przelacznik.setAttribute('aria-pressed', m === 'dark' ? 'true' : 'false');
-    przelacznik.setAttribute('aria-label', m === 'dark' ? 'Włącz tryb jasny' : 'Włącz tryb ciemny');
-    ustawKolorPaska(m);
-  };
-  opiszPrzycisk(motywEfektywny());
-  przelacznik.addEventListener('click', function() {
-    var nowy = motywEfektywny() === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', nowy);
-    try { localStorage.setItem('motyw', nowy); } catch (e) {}
-    opiszPrzycisk(nowy);
-  });
-  // Guard: starsze Safari (<14) nie ma addEventListener na MediaQueryList.
-  if (kontrastCiemny.addEventListener) {
-    kontrastCiemny.addEventListener('change', function() {
-      if (!document.documentElement.getAttribute('data-theme')) opiszPrzycisk(motywEfektywny());
-    });
-  }
-})();
-</script>
 
 </body></html>
