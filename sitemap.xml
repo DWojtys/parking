@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Tylko strony indeksowalne. polityka-prywatnosci.html i 404.html mają noindex,
+     więc wpisanie ich tutaj byłoby sygnałem sprzecznym. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://parkingwkolobrzegu.pl/</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://parkingwkolobrzegu.pl/cennik.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <loc>https://parkingwkolobrzegu.pl/cennik</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://parkingwkolobrzegu.pl/miejsca-zamykane.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <loc>https://parkingwkolobrzegu.pl/miejsca-zamykane</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://parkingwkolobrzegu.pl/dla-firm.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <loc>https://parkingwkolobrzegu.pl/dla-firm</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://parkingwkolobrzegu.pl/dojazd.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <loc>https://parkingwkolobrzegu.pl/dojazd</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://parkingwkolobrzegu.pl/faq.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <loc>https://parkingwkolobrzegu.pl/faq</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
