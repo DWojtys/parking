@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl"><head>
 <meta charset="UTF-8">
+
+<!-- Adresy bez .html. GitHub Pages serwuje /cennik i /cennik.html jako to samo, ale jako
+     hosting statyczny nie potrafi przekierowania 301. Ten skrypt sprowadza stary adres
+     z .html do wersji czystej jeszcze przed renderem; `replace` nie zostawia wpisu
+     w historii, wiec przycisk Wstecz dziala normalnie. Bez JS strona dziala tak samo,
+     zmienia sie tylko to, co widac w pasku adresu. -->
+<script>
+  (function(){var p=location.pathname;if(location.protocol!=='http:'&&location.protocol!=='https:')return;if(!/\.html$/.test(p))return;location.replace((p==='/index.html'?'/':p.slice(0,-5))+location.search+location.hash);})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7f4">
@@ -9,7 +18,7 @@
 <title>Polityka prywatności | Parking Pasaż Parsęta Kołobrzeg</title>
 <meta name="description" content="Polityka prywatności i informacja o przetwarzaniu danych osobowych (RODO) — Parking Pasaż Parsęta, ul. Łopuskiego 27, Kołobrzeg.">
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://parkingwkolobrzegu.pl/polityka-prywatnosci.html">
+<link rel="canonical" href="https://parkingwkolobrzegu.pl/polityka-prywatnosci">
 
 <link rel="icon" type="image/svg+xml" href="favicon2.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon2-32.png">
@@ -30,16 +39,16 @@
 
 <header class="topbar">
   <div class="container topbar-inner">
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark" aria-hidden="true">P</span>
       <span class="brand-name">Parking Pasaż Parsęta</span>
     </a>
     <nav class="mainnav" aria-label="Nawigacja główna">
-      <a href="cennik.html">Cennik</a>
-      <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-      <a href="dla-firm.html">Dla firm</a>
-      <a href="dojazd.html">Dojazd</a>
-      <a href="faq.html">FAQ</a>
+      <a href="/cennik">Cennik</a>
+      <a href="/miejsca-zamykane">Miejsca zamykane</a>
+      <a href="/dla-firm">Dla firm</a>
+      <a href="/dojazd">Dojazd</a>
+      <a href="/faq">FAQ</a>
     </nav>
     <div class="topbar-actions">
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
@@ -68,12 +77,12 @@
      ================================================================ -->
 <div class="navsheet" id="menu-witryny" popover>
   <nav class="navsheet-nav" aria-label="Nawigacja witryny">
-    <a href="index.html">Strona główna</a>
-    <a href="cennik.html">Cennik</a>
-    <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-    <a href="dla-firm.html">Dla firm</a>
-    <a href="dojazd.html">Dojazd</a>
-    <a href="faq.html">Pytania i odpowiedzi</a>
+    <a href="/">Strona główna</a>
+    <a href="/cennik">Cennik</a>
+    <a href="/miejsca-zamykane">Miejsca zamykane</a>
+    <a href="/dla-firm">Dla firm</a>
+    <a href="/dojazd">Dojazd</a>
+    <a href="/faq">Pytania i odpowiedzi</a>
   </nav>
   <div class="navsheet-foot">
     <a class="navsheet-tel" href="tel:+48602464010" aria-label="Zadzwoń: +48 602 464 010">
@@ -99,7 +108,7 @@
   <div class="container container--doc">
     <nav class="breadcrumbs" aria-label="Ścieżka nawigacyjna">
       <ol>
-        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="/">Strona główna</a></li>
         <li aria-current="page">Polityka prywatności</li>
       </ol>
     </nav>
@@ -253,12 +262,12 @@
       </div>
       <nav class="footer-col" aria-label="Strony witryny">
         <h3>Strony</h3>
-        <a href="index.html">Strona główna</a>
-        <a href="cennik.html">Cennik</a>
-        <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-        <a href="dla-firm.html">Dla firm</a>
-        <a href="dojazd.html">Dojazd</a>
-        <a href="faq.html">Pytania i odpowiedzi</a>
+        <a href="/">Strona główna</a>
+        <a href="/cennik">Cennik</a>
+        <a href="/miejsca-zamykane">Miejsca zamykane</a>
+        <a href="/dla-firm">Dla firm</a>
+        <a href="/dojazd">Dojazd</a>
+        <a href="/faq">Pytania i odpowiedzi</a>
       </nav>
       <div class="footer-col">
         <h3>Kontakt</h3>
@@ -272,7 +281,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Parking Pasaż Parsęta. Operator: Supermat Adam Gzyl, NIP 6711308209.</span>
-      <span><a href="polityka-prywatnosci.html" aria-current="page">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
+      <span><a href="/polityka-prywatnosci" aria-current="page">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
     </div>
   </div>
 </footer>

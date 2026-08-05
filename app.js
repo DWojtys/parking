@@ -3,7 +3,7 @@
 
    WYŁĄCZNIE progressive enhancement. Każda strona jest w pełni
    funkcjonalna bez tego pliku:
-     • nawigacja to prawdziwe linki do stron (.html),
+     • nawigacja to prawdziwe linki do stron (adresy bez .html),
      • cennik, FAQ (<details>), galeria (scroll-snap), adres i telefon
        działają natywnie,
      • motyw idzie za `prefers-color-scheme`,
@@ -117,7 +117,7 @@
 
     /* ---------- Zgoda na mapę Google -------------------------------
        Baner pojawia się tylko na stronie, która naprawdę ma mapę
-       (dziś: dojazd.html). Decyzja zapisana w localStorage obowiązuje
+       (dziś: /dojazd). Decyzja zapisana w localStorage obowiązuje
        na całej witrynie, więc przy kolejnych wizytach mapa wczytuje się
        od razu i baner już nie wraca. Przed zgodą strona nie wysyła do
        Google żadnych zapytań.                                         */

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl"><head>
 <meta charset="UTF-8">
+
+<!-- Adresy bez .html. GitHub Pages serwuje /cennik i /cennik.html jako to samo, ale jako
+     hosting statyczny nie potrafi przekierowania 301. Ten skrypt sprowadza stary adres
+     z .html do wersji czystej jeszcze przed renderem; `replace` nie zostawia wpisu
+     w historii, wiec przycisk Wstecz dziala normalnie. Bez JS strona dziala tak samo,
+     zmienia sie tylko to, co widac w pasku adresu. -->
+<script>
+  (function(){var p=location.pathname;if(location.protocol!=='http:'&&location.protocol!=='https:')return;if(!/\.html$/.test(p))return;location.replace((p==='/index.html'?'/':p.slice(0,-5))+location.search+location.hash);})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7f4">
@@ -140,16 +149,16 @@
      ================================================================ -->
 <header class="topbar">
   <div class="container topbar-inner">
-    <a href="index.html" class="brand" aria-current="page">
+    <a href="/" class="brand" aria-current="page">
       <span class="brand-mark" aria-hidden="true">P</span>
       <span class="brand-name">Parking Pasaż Parsęta</span>
     </a>
     <nav class="mainnav" aria-label="Nawigacja główna">
-      <a href="cennik.html">Cennik</a>
-      <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-      <a href="dla-firm.html">Dla firm</a>
-      <a href="dojazd.html">Dojazd</a>
-      <a href="faq.html">FAQ</a>
+      <a href="/cennik">Cennik</a>
+      <a href="/miejsca-zamykane">Miejsca zamykane</a>
+      <a href="/dla-firm">Dla firm</a>
+      <a href="/dojazd">Dojazd</a>
+      <a href="/faq">FAQ</a>
     </nav>
     <div class="topbar-actions">
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
@@ -178,12 +187,12 @@
      ================================================================ -->
 <div class="navsheet" id="menu-witryny" popover>
   <nav class="navsheet-nav" aria-label="Nawigacja witryny">
-    <a href="index.html" aria-current="page">Strona główna</a>
-    <a href="cennik.html">Cennik</a>
-    <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-    <a href="dla-firm.html">Dla firm</a>
-    <a href="dojazd.html">Dojazd</a>
-    <a href="faq.html">Pytania i odpowiedzi</a>
+    <a href="/" aria-current="page">Strona główna</a>
+    <a href="/cennik">Cennik</a>
+    <a href="/miejsca-zamykane">Miejsca zamykane</a>
+    <a href="/dla-firm">Dla firm</a>
+    <a href="/dojazd">Dojazd</a>
+    <a href="/faq">Pytania i odpowiedzi</a>
   </nav>
   <div class="navsheet-foot">
     <a class="navsheet-tel" href="tel:+48602464010" aria-label="Zadzwoń: +48 602 464 010">
@@ -226,7 +235,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"></path></svg>
           <span class="cta-call">Zadzwoń teraz</span><span class="cta-num">+48&nbsp;602&nbsp;464&nbsp;010</span>
         </a>
-        <a href="cennik.html" class="btn btn-secondary">Zobacz cennik</a>
+        <a href="/cennik" class="btn btn-secondary">Zobacz cennik</a>
       </div>
     </div>
 
@@ -278,21 +287,21 @@
       <div class="use use--primary">
         <h3 class="use-title">Twoje auto pod dachem</h3>
         <p class="use-desc">Wielopoziomowy garaż naziemny w samym centrum. Koniec z krążeniem po strefie płatnego parkowania i szukaniem wolnego miejsca.</p>
-        <a class="link-next" href="cennik.html">Stawki i warunki umowy
+        <a class="link-next" href="/cennik">Stawki i warunki umowy
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
       <div class="use">
         <h3 class="use-title">Prywatny schowek</h3>
         <p class="use-desc">Motocykl, rowery, opony, sprzęt sezonowy. Bezpiecznie, pod dachem i pod ręką.</p>
-        <a class="link-next" href="miejsca-zamykane.html">Miejsca zamykane
+        <a class="link-next" href="/miejsca-zamykane">Miejsca zamykane
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
       <div class="use">
         <h3 class="use-title">Dodatkowa przestrzeń</h3>
         <p class="use-desc">Metry w centrum, których nie masz pod blokiem. Wynajem długoterminowy, faktura VAT.</p>
-        <a class="link-next" href="dla-firm.html">Najem dla firm
+        <a class="link-next" href="/dla-firm">Najem dla firm
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
@@ -361,7 +370,7 @@
 </section>
 
 <!-- ================================================================
-     CENNIK -skrót, pełne stawki na cennik.html
+     CENNIK -skrót, pełne stawki na /cennik
      ================================================================ -->
 <section id="cennik-skrot" class="pricing tight">
   <div class="container">
@@ -385,13 +394,13 @@
     </div>
 
     <div class="btn-row">
-      <a href="cennik.html" class="btn btn-primary">Zobacz cennik</a>
+      <a href="/cennik" class="btn btn-primary">Zobacz cennik</a>
     </div>
   </div>
 </section>
 
 <!-- ================================================================
-     LOKALIZACJA -skrót, dokładny dojazd na dojazd.html.
+     LOKALIZACJA -skrót, dokładny dojazd na /dojazd.
      Podglad mapy jest statyczny i serwowany z naszego hostingu, więc ta
      strona nie wysyła do Google żadnych zapytań i nie potrzebuje zgody.
      ================================================================ -->
@@ -417,7 +426,7 @@
         <div class="label">Adres</div>
         <div class="name">Parking Pasaż Parsęta</div>
         <div class="street">ul. Łopuskiego 27, 78-100 Kołobrzeg</div>
-        <a href="dojazd.html" class="maps-link">
+        <a href="/dojazd" class="maps-link">
           Dojazd i mapa
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
         </a>
@@ -466,12 +475,12 @@
       </div>
       <nav class="footer-col" aria-label="Strony witryny">
         <h3>Strony</h3>
-        <a href="index.html" aria-current="page">Strona główna</a>
-        <a href="cennik.html">Cennik</a>
-        <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-        <a href="dla-firm.html">Dla firm</a>
-        <a href="dojazd.html">Dojazd</a>
-        <a href="faq.html">Pytania i odpowiedzi</a>
+        <a href="/" aria-current="page">Strona główna</a>
+        <a href="/cennik">Cennik</a>
+        <a href="/miejsca-zamykane">Miejsca zamykane</a>
+        <a href="/dla-firm">Dla firm</a>
+        <a href="/dojazd">Dojazd</a>
+        <a href="/faq">Pytania i odpowiedzi</a>
       </nav>
       <div class="footer-col">
         <h3>Kontakt</h3>
@@ -485,7 +494,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Parking Pasaż Parsęta. Operator: Supermat Adam Gzyl, NIP 6711308209.</span>
-      <span><a href="polityka-prywatnosci.html">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
+      <span><a href="/polityka-prywatnosci">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
     </div>
   </div>
 </footer>

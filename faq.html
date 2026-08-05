@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl"><head>
 <meta charset="UTF-8">
+
+<!-- Adresy bez .html. GitHub Pages serwuje /cennik i /cennik.html jako to samo, ale jako
+     hosting statyczny nie potrafi przekierowania 301. Ten skrypt sprowadza stary adres
+     z .html do wersji czystej jeszcze przed renderem; `replace` nie zostawia wpisu
+     w historii, wiec przycisk Wstecz dziala normalnie. Bez JS strona dziala tak samo,
+     zmienia sie tylko to, co widac w pasku adresu. -->
+<script>
+  (function(){var p=location.pathname;if(location.protocol!=='http:'&&location.protocol!=='https:')return;if(!/\.html$/.test(p))return;location.replace((p==='/index.html'?'/':p.slice(0,-5))+location.search+location.hash);})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7f4">
@@ -10,7 +19,7 @@
 <meta name="description" content="Odpowiedzi na pytania o wynajem miejsca parkingowego w Kołobrzegu: ceny, okres umowy, miejsce otwarte czy zamykany boks, monitoring, dostęp 24/7, faktura.">
 <meta name="author" content="Parking Pasaż Parsęta">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://parkingwkolobrzegu.pl/faq.html">
+<link rel="canonical" href="https://parkingwkolobrzegu.pl/faq">
 
 <link rel="icon" type="image/svg+xml" href="favicon2.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon2-32.png">
@@ -21,7 +30,7 @@
 <meta property="og:site_name" content="Parking Pasaż Parsęta">
 <meta property="og:title" content="Pytania o wynajem miejsca parkingowego w Kołobrzegu">
 <meta property="og:description" content="Ceny, okres umowy, różnica między miejscem otwartym a zamykanym boksem, monitoring, dostęp 24/7, faktura VAT.">
-<meta property="og:url" content="https://parkingwkolobrzegu.pl/faq.html">
+<meta property="og:url" content="https://parkingwkolobrzegu.pl/faq">
 <meta property="og:image" content="https://parkingwkolobrzegu.pl/zdjecia/parking-kolobrzeg-garaz-wielopoziomowy.jpg">
 <meta property="og:image:alt" content="Parking Pasaż Parsęta w Kołobrzegu">
 <meta name="twitter:card" content="summary_large_image">
@@ -41,13 +50,13 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://parkingwkolobrzegu.pl/" },
-        { "@type": "ListItem", "position": 2, "name": "Pytania i odpowiedzi", "item": "https://parkingwkolobrzegu.pl/faq.html" }
+        { "@type": "ListItem", "position": 2, "name": "Pytania i odpowiedzi", "item": "https://parkingwkolobrzegu.pl/faq" }
       ]
     },
     {
       "@type": "WebPage",
-      "@id": "https://parkingwkolobrzegu.pl/faq.html#strona",
-      "url": "https://parkingwkolobrzegu.pl/faq.html",
+      "@id": "https://parkingwkolobrzegu.pl/faq#strona",
+      "url": "https://parkingwkolobrzegu.pl/faq",
       "name": "Pytania o wynajem miejsca parkingowego w Kołobrzegu",
       "inLanguage": "pl-PL",
       "isPartOf": { "@id": "https://parkingwkolobrzegu.pl/#witryna" },
@@ -232,16 +241,16 @@
 
 <header class="topbar">
   <div class="container topbar-inner">
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark" aria-hidden="true">P</span>
       <span class="brand-name">Parking Pasaż Parsęta</span>
     </a>
     <nav class="mainnav" aria-label="Nawigacja główna">
-      <a href="cennik.html">Cennik</a>
-      <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-      <a href="dla-firm.html">Dla firm</a>
-      <a href="dojazd.html">Dojazd</a>
-      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="/cennik">Cennik</a>
+      <a href="/miejsca-zamykane">Miejsca zamykane</a>
+      <a href="/dla-firm">Dla firm</a>
+      <a href="/dojazd">Dojazd</a>
+      <a href="/faq" aria-current="page">FAQ</a>
     </nav>
     <div class="topbar-actions">
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Włącz tryb ciemny" aria-pressed="false" title="Zmień motyw">
@@ -270,12 +279,12 @@
      ================================================================ -->
 <div class="navsheet" id="menu-witryny" popover>
   <nav class="navsheet-nav" aria-label="Nawigacja witryny">
-    <a href="index.html">Strona główna</a>
-    <a href="cennik.html">Cennik</a>
-    <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-    <a href="dla-firm.html">Dla firm</a>
-    <a href="dojazd.html">Dojazd</a>
-    <a href="faq.html" aria-current="page">Pytania i odpowiedzi</a>
+    <a href="/">Strona główna</a>
+    <a href="/cennik">Cennik</a>
+    <a href="/miejsca-zamykane">Miejsca zamykane</a>
+    <a href="/dla-firm">Dla firm</a>
+    <a href="/dojazd">Dojazd</a>
+    <a href="/faq" aria-current="page">Pytania i odpowiedzi</a>
   </nav>
   <div class="navsheet-foot">
     <a class="navsheet-tel" href="tel:+48602464010" aria-label="Zadzwoń: +48 602 464 010">
@@ -300,7 +309,7 @@
   <div class="container container--doc">
     <nav class="breadcrumbs" aria-label="Ścieżka nawigacyjna">
       <ol>
-        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="/">Strona główna</a></li>
         <li aria-current="page">Pytania i odpowiedzi</li>
       </ol>
     </nav>
@@ -326,7 +335,7 @@
         </summary>
         <div class="faq-answer">
           <p>Miejsce otwarte to 500&nbsp;zł miesięcznie przy umowie na jeden miesiąc, 450&nbsp;zł przy umowie na sześć miesięcy i&nbsp;400&nbsp;zł przy umowie rocznej. Zamykany boks to odpowiednio 600, 550 i&nbsp;500&nbsp;zł miesięcznie. Im dłuższy okres, tym niższa stawka.</p>
-          <p><a href="cennik.html">Pełny cennik z warunkami umowy</a></p>
+          <p><a href="/cennik">Pełny cennik z warunkami umowy</a></p>
         </div>
       </details>
       <details class="faq-item">
@@ -363,7 +372,7 @@
         </summary>
         <div class="faq-answer">
           <p>Tak. Wystawiamy fakturę VAT firmom i&nbsp;osobom prowadzącym działalność, więc najem miejsca może wejść w&nbsp;koszty.</p>
-          <p><a href="dla-firm.html">Warunki najmu dla firm</a></p>
+          <p><a href="/dla-firm">Warunki najmu dla firm</a></p>
         </div>
       </details>
     </div>
@@ -377,7 +386,7 @@
         </summary>
         <div class="faq-answer">
           <p>Miejsce otwarte to wyznaczone stanowisko w&nbsp;hali garażowej: auto stoi pod dachem, osłonięte przed deszczem, śniegiem i&nbsp;słońcem. Miejsce zamykane to prywatny boks z&nbsp;własną zamykaną bramą, który daje dodatkową ochronę i&nbsp;może służyć również jako schowek.</p>
-          <p><a href="miejsca-zamykane.html">Więcej o miejscach zamykanych</a></p>
+          <p><a href="/miejsca-zamykane">Więcej o miejscach zamykanych</a></p>
         </div>
       </details>
       <details class="faq-item">
@@ -426,7 +435,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
         </summary>
         <div class="faq-answer">
-          <p>Parking Pasaż Parsęta mieści się przy ul.&nbsp;ppor.&nbsp;Edmunda Łopuskiego&nbsp;27 w&nbsp;Kołobrzegu, w&nbsp;ścisłym centrum, pięć minut pieszo od starówki. Mapę i&nbsp;opis wjazdu znajdziesz na stronie <a href="dojazd.html">Dojazd</a>.</p>
+          <p>Parking Pasaż Parsęta mieści się przy ul.&nbsp;ppor.&nbsp;Edmunda Łopuskiego&nbsp;27 w&nbsp;Kołobrzegu, w&nbsp;ścisłym centrum, pięć minut pieszo od starówki. Mapę i&nbsp;opis wjazdu znajdziesz na stronie <a href="/dojazd">Dojazd</a>.</p>
         </div>
       </details>
       <details class="faq-item">
@@ -476,7 +485,7 @@
         </summary>
         <div class="faq-answer">
           <p>Tak, wynajem kilku miejsc jest możliwy. Liczbę ustalamy telefonicznie, zależnie od tego, co jest w&nbsp;danym momencie wolne. Firmom wystawiamy fakturę VAT.</p>
-          <p><a href="dla-firm.html">Najem dla firm</a></p>
+          <p><a href="/dla-firm">Najem dla firm</a></p>
         </div>
       </details>
     </div>
@@ -515,12 +524,12 @@
       </div>
       <nav class="footer-col" aria-label="Strony witryny">
         <h3>Strony</h3>
-        <a href="index.html">Strona główna</a>
-        <a href="cennik.html">Cennik</a>
-        <a href="miejsca-zamykane.html">Miejsca zamykane</a>
-        <a href="dla-firm.html">Dla firm</a>
-        <a href="dojazd.html">Dojazd</a>
-        <a href="faq.html" aria-current="page">Pytania i odpowiedzi</a>
+        <a href="/">Strona główna</a>
+        <a href="/cennik">Cennik</a>
+        <a href="/miejsca-zamykane">Miejsca zamykane</a>
+        <a href="/dla-firm">Dla firm</a>
+        <a href="/dojazd">Dojazd</a>
+        <a href="/faq" aria-current="page">Pytania i odpowiedzi</a>
       </nav>
       <div class="footer-col">
         <h3>Kontakt</h3>
@@ -534,7 +543,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Parking Pasaż Parsęta. Operator: Supermat Adam Gzyl, NIP 6711308209.</span>
-      <span><a href="polityka-prywatnosci.html">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
+      <span><a href="/polityka-prywatnosci">Polityka prywatności</a> · Wynajem miejsc parkingowych w Kołobrzegu</span>
     </div>
   </div>
 </footer>
